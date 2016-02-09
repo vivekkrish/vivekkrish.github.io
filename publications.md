@@ -28,5 +28,5 @@ img { width: 80%; margin: 0 auto; display: block; }
 <center><h1>{{ page.title }}</h1></center>
 
 <div id="pub-embed" class="embed-responsive" style="padding-bottom: 100%;">
-<iframe class="embed-responsive-item" src="http://bibbase.org/show?bib=https%3A%2F%2Fgist.githubusercontent.com%2Fvivekkrish%2Fc45b97a2a37f7f064a07%2Fraw%2F1a6273f2ad056d06dafbd7aa251806d0293ff6f9%2Fcitations.bib"> </iframe>
+<iframe class="embed-responsive-item" src="http://bibbase.org/show?bib=https%3A%2F%2Fraw.githubusercontent.com%2Fvivekkrish%2Fvivekkrish.github.io%2Fmaster%2Fassets%2Fstatic%2Fcitations.bib"> </iframe>
 </div>
