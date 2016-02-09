@@ -1,0 +1,54 @@
+==================================================================
+https://keybase.io/vivekkrish
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://vivekkrish.github.io
+  * I am vivekkrish (https://keybase.io/vivekkrish) on keybase.
+  * I have a public key ASA8VqMtyBIUQfrfKiDJN7GszwX1s1aLfspmbMA7TfuPFAo
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "01010186ffdbeac0aa8090262e8de975c4721d6e1bf61385fd588366b232cd236f640a",
+            "host": "keybase.io",
+            "kid": "01203c56a32dc8121441fadf2a20c937b1accf05f5b3568b7eca666cc03b4dfb8f140a",
+            "uid": "76c00f083bc69838dd2dc90b5070d919",
+            "username": "vivekkrish"
+        },
+        "service": {
+            "hostname": "vivekkrish.github.io",
+            "protocol": "https:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "client": {
+        "name": "keybase.io go client",
+        "version": "1.0.9"
+    },
+    "ctime": 1455032384,
+    "expire_in": 504576000,
+    "merkle_root": {
+        "ctime": 1455032347,
+        "hash": "8458a79e70d3635668f5eedca71a75ab88915f420e9688172eb2e5b982d1e2569afb06137a9e27438960857dff8e769f7984e3728df8732c91fce381abe74a37",
+        "seqno": 378814
+    },
+    "prev": "bb96a631fe348423ad967824cb710de32db0598aac6f41a1ccdae8e14708d30d",
+    "seqno": 20,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+g6Rib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgPFajLcgSFEH63yogyTexrM8F9bNWi37KZmzAO037jxQKp3BheWxvYWTFAv57ImJvZHkiOnsia2V5Ijp7ImVsZGVzdF9raWQiOiIwMTAxMDE4NmZmZGJlYWMwYWE4MDkwMjYyZThkZTk3NWM0NzIxZDZlMWJmNjEzODVmZDU4ODM2NmIyMzJjZDIzNmY2NDBhIiwiaG9zdCI6ImtleWJhc2UuaW8iLCJraWQiOiIwMTIwM2M1NmEzMmRjODEyMTQ0MWZhZGYyYTIwYzkzN2IxYWNjZjA1ZjViMzU2OGI3ZWNhNjY2Y2MwM2I0ZGZiOGYxNDBhIiwidWlkIjoiNzZjMDBmMDgzYmM2OTgzOGRkMmRjOTBiNTA3MGQ5MTkiLCJ1c2VybmFtZSI6InZpdmVra3Jpc2gifSwic2VydmljZSI6eyJob3N0bmFtZSI6InZpdmVra3Jpc2guZ2l0aHViLmlvIiwicHJvdG9jb2wiOiJodHRwczoifSwidHlwZSI6IndlYl9zZXJ2aWNlX2JpbmRpbmciLCJ2ZXJzaW9uIjoxfSwiY2xpZW50Ijp7Im5hbWUiOiJrZXliYXNlLmlvIGdvIGNsaWVudCIsInZlcnNpb24iOiIxLjAuOSJ9LCJjdGltZSI6MTQ1NTAzMjM4NCwiZXhwaXJlX2luIjo1MDQ1NzYwMDAsIm1lcmtsZV9yb290Ijp7ImN0aW1lIjoxNDU1MDMyMzQ3LCJoYXNoIjoiODQ1OGE3OWU3MGQzNjM1NjY4ZjVlZWRjYTcxYTc1YWI4ODkxNWY0MjBlOTY4ODE3MmViMmU1Yjk4MmQxZTI1NjlhZmIwNjEzN2E5ZTI3NDM4OTYwODU3ZGZmOGU3NjlmNzk4NGUzNzI4ZGY4NzMyYzkxZmNlMzgxYWJlNzRhMzciLCJzZXFubyI6Mzc4ODE0fSwicHJldiI6ImJiOTZhNjMxZmUzNDg0MjNhZDk2NzgyNGNiNzEwZGUzMmRiMDU5OGFhYzZmNDFhMWNjZGFlOGUxNDcwOGQzMGQiLCJzZXFubyI6MjAsInRhZyI6InNpZ25hdHVyZSJ9o3NpZ8RAoQ3wXO+JId0+ex3/loafxP37QjfW/rsEKAxq0owzQrs1jDAhvMpIGcHpwbhbn+7ybt+7PCyOdk4ZFgHzGklnAKhzaWdfdHlwZSCjdGFnzQICp3ZlcnNpb24B
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/vivekkrish
+
+==================================================================
