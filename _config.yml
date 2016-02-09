@@ -1,0 +1,39 @@
+name: 'Vivek Krishnakumar'
+bio: 'Bioinformatician at JCVI, currently working on NSF-funded Araport and Legume Federation projects'
+picture: 'assets/images/profile.jpg'
+
+# header images
+publications_header: 'assets/images/publications.png'
+about_header: 'assets/images/about-me.jpg'
+cv_header: 'assets/images/cv.jpg'
+contact_header: 'assets/images/contact.png'
+
+url: https://vivekkrish.github.io
+permalink: /:title/
+
+analytics: 'UA-26284421-1'
+twitter: vivekkrish
+instagram: vivekkrish
+linkedin: vivekkrish
+github: vivekkrish
+scholar: cLlRcPYAAAAJ
+keybase: vivekkrish
+email: vivekkrishnakumar@gmail.com
+
+exclude: [README.md, Gemfile, Gemfile.lock, node_modules, gulpfile.js, package.json, _site, src, vendor]
+
+# if you don't need pagination, comment the *paginate* configs below
+# paginate: 5
+# paginate_path: "blog/:num/"
+
+gems:
+  - jemoji
+  - jekyll-mentions
+  - jekyll-seo-tag
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-gist
+  - jekyll-paginate
+
+jekyll-mentions:
+    base_url: https://github.com
