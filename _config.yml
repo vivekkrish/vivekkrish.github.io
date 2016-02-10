@@ -11,7 +11,7 @@ contact_header: 'assets/images/contact.png'
 url: https://vivekkrish.github.io
 permalink: /:title/
 
-analytics: 'UA-26284421-2'
+googletag: 'GTM-NWWZGK'
 twitter: vivekkrish
 instagram: vivekkrish
 linkedin: vivekkrish
