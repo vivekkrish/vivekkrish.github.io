@@ -60,4 +60,4 @@ gulp.task('watch', function() {
     gulp.watch(['_drafts/*', '_includes/*', '_layouts/*', '_posts/*', '*.{html,md}', '_config.yml'], ['jekyll-rebuild']);
 });
 
-gulp.task('default', ['styles', 'imagemin', 'browserSync', 'watch']);
+gulp.task('default', ['styles', 'browserSync', 'watch']);
