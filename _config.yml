@@ -12,12 +12,8 @@ url: https://vivekkrish.github.io
 permalink: /:title/
 
 googletag: 'GTM-NWWZGK'
-twitter: vivekkrish
-instagram: vivekkrish
-linkedin: vivekkrish
-github: vivekkrish
 scholar: cLlRcPYAAAAJ
-keybase: vivekkrish
+username: vivekkrish
 email: vivekkrishnakumar@gmail.com
 
 exclude: [README.md, Gemfile, Gemfile.lock, node_modules, gulpfile.js, package.json, _site, src, vendor]
