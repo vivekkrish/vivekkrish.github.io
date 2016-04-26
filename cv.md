@@ -27,6 +27,10 @@ img { width: 80%; margin: 0 auto; display: block; }
 
 <center><h1>{{ page.title }}</h1></center>
 
-<div id="cv-embed" class="embed-responsive" style="padding-bottom: 100%;">
-<iframe class="embed-responsive-item" src="https://docs.google.com/document/d/1i-qPoxZryC16uF1ULv5M33Kk8QAeA4fPcRk_zFoWvCQ/pub?embedded=true"></iframe>
+<div class="nav" style="position: relative; text-align: right;"><ul>
+    <li><a href="http://bit.ly/download-cv-vivek" title="Download CV in PDF format">PDF&nbsp;<i class="fa fa-download"></i></a></li>
+</ul></div>
+
+<div id="cv-embed" class="embed-responsive" style="padding-bottom: 100%; border: 1px silver solid;">
+    <iframe class="embed-responsive-item" src="https://docs.google.com/document/d/1i-qPoxZryC16uF1ULv5M33Kk8QAeA4fPcRk_zFoWvCQ/pub?embedded=true"></iframe>
 </div>
