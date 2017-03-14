@@ -1,7 +1,6 @@
 ---
 title: About
 layout: page
-permalink: /about/index.html
 ---
 <style>
 img { width: 60%; margin: 0 auto; display: block; }
