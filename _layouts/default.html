@@ -22,12 +22,6 @@ layout: compress
     <style>
     {% capture scss_sheet %}{% include style.scss %}{% endcapture %}
     {{ scss_sheet | scssify }}
-    <!-- Third-party icon assets:
-        1. Font Awesome via MaxCDN
-        2. Academicons
-    -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="{{ site.url }}{{ "/assets/styles/academicons.min.css" }}">
     </style>
 
     {% include analytics-google.html %}
