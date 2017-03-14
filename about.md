@@ -48,20 +48,3 @@ warehousing and federation via Web Services.</p>
 	<li>PostgreSQL - MySQL</li>
 	<li>Git</li>
 </ul>
-
-<h2>Contact</h2>
-
-+ [Email](mailto:{{ site.email }})
-+ Contact form:
-<div class="alert" id="alert-box">
-	Your message was sent! I’ll get back to you soon. Thanks!
-</div>
-<form accept-charset="UTF-8" action="http://pooleapp.com/stash/d73cf94b-8769-4867-af89-ff0c012f48fb/" id="contact-format" method="POST">
-	<input type="hidden" name="utf8" value="x">
-	<input type="hidden" name="redirect_to" value="{{ site.url }}/about?form=ok#alert-box">
-	<label for="name">Name</label> <input type="text" name="name" id="name"><br /><br />
-	<label for="email">Email</label> <input type="email" name="email" id="email"><br /><br />
-	<label for="msg">Message</label> <textarea name="msg" id="msg" cols="30" rows="10"></textarea>
-	<br /><br />
-	<input type="submit" value="submit" />
-</form>
