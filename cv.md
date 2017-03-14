@@ -1,7 +1,6 @@
 ---
 title: Curriculum Vitae
 layout: page
-permalink: /cv/index.html
 ---
 <style>
 img { width: 80%; margin: 0 auto; display: block; }
@@ -27,9 +26,13 @@ img { width: 80%; margin: 0 auto; display: block; }
 
 <center><h1>{{ page.title }}</h1></center>
 
-<div class="nav" style="position: relative; text-align: right;"><ul>
-    <li><a href="http://bit.ly/download-cv-vivek" title="Download CV in PDF format">PDF&nbsp;<i class="fa fa-download"></i></a></li>
-</ul></div>
+<nav class="nav" style="position: relative; text-align: right;">
+    <ul class="list">
+        <li class="item">
+            <svg style="position: relative; top: 10px" class="icon icon-download"><use xlink:href="#icon-download"></use></svg>&nbsp;<a href="https://bit.ly/download-cv-vivek" title="Download CV in PDF format">PDF</a>
+        </li>
+    </ul>
+</nav>
 
 <div id="cv-embed" class="embed-responsive" style="padding-bottom: 100%; border: 1px silver solid;">
     <iframe class="embed-responsive-item" src="https://docs.google.com/document/d/1i-qPoxZryC16uF1ULv5M33Kk8QAeA4fPcRk_zFoWvCQ/pub?embedded=true"></iframe>
