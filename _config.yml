@@ -22,7 +22,7 @@ about_header: 'assets/images/about-me.jpg'
 cv_header: 'assets/images/cv.jpg'
 contact_header: 'assets/images/contact.png'
 
-url: https://vivekkrish.github.io
+url: http://www.vivekkrish.com
 # your url: http://USERNAME.github.io
 
 permalink: /:title/
@@ -58,7 +58,7 @@ keybase: vivekkrish
 # reddit: username
 # medium: medium
 # vimeo: myvimeo
-email: vivekkrishnakumar@gmail.com
+email: hello@vivekkrish.com
 
 authors:
     vivekkrish:
