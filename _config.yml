@@ -22,6 +22,10 @@ about_header: 'assets/images/about-me.jpg'
 cv_header: 'assets/images/cv.jpg'
 contact_header: 'assets/images/contact.png'
 
+# publications via bibbase.org
+citations_bib: 'assets/static/citations.bib'
+bibbase_token: '64de019d02658a039e6f5e29181573ec'
+
 url: http://www.vivekkrish.com
 # your url: http://USERNAME.github.io
 
@@ -33,7 +37,9 @@ permalink: /:title/
 # To enable piwik tracking, supply your url & site ID below
 # analytics-piwik-url: 'piwik.my-host.com'
 # analytics-piwik-id: 1
-googletag: 'GTM-NWWZGK'
+
+# To enable google tag manager, supply your token below
+analytics-googletag: 'GTM-NWWZGK'
 
 # if you don't want comments in your posts, leave categories empty
 disqus:
