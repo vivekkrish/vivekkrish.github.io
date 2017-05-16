@@ -22,7 +22,7 @@ img { width: 80%; margin: 0 auto; display: block; }
 }
 </style>
 
-![Profile Image]({{ site.url }}/{{ site.cv_header }})
+![Profile Image]({{ site.url }}/{{ site.cv_page_banner }})
 
 <center><h1>{{ page.title }}</h1></center>
 
@@ -35,5 +35,5 @@ img { width: 80%; margin: 0 auto; display: block; }
 </nav>
 
 <div id="cv-embed" class="embed-responsive" style="padding-bottom: 100%; border: 1px silver solid;">
-    <iframe class="embed-responsive-item" src="https://docs.google.com/document/d/1i-qPoxZryC16uF1ULv5M33Kk8QAeA4fPcRk_zFoWvCQ/pub?embedded=true"></iframe>
+    <iframe class="embed-responsive-item" src="{{ site.cv_embed_url }}"></iframe>
 </div>

@@ -16,16 +16,6 @@ resume: false
 resume-external: true
 resume-url: https://google.com/?q=my+resume
 
-# header images
-publications_header: 'assets/images/publications.png'
-about_header: 'assets/images/about-me.jpg'
-cv_header: 'assets/images/cv.jpg'
-contact_header: 'assets/images/contact.png'
-
-# publications via bibbase.org
-citations_bib: 'assets/static/citations.bib'
-bibbase_token: '64de019d02658a039e6f5e29181573ec'
-
 url: http://www.vivekkrish.com
 # your url: http://USERNAME.github.io
 
@@ -91,9 +81,22 @@ projects: false
 about: true
 blog: false
 
-# if you don't need "cv" or "publications", comment them out below
+# if you want to include your "cv" (via an embed), 
+# set it to true and specify the source file URL
 cv: true
+cv_embed_url: 'https://docs.google.com/document/d/1i-qPoxZryC16uF1ULv5M33Kk8QAeA4fPcRk_zFoWvCQ/pub?embedded=true'
+
+# if you want to include your publications via bibbase.org,
+# set to true and specify source of your citation history
+# in bibtex format
 publications: true
+citations_bib: 'assets/static/citations.bib'
+bibbase_token: '64de019d02658a039e6f5e29181573ec'
+
+# page banner images
+about_page_banner: 'assets/images/about-me.jpg'
+cv_page_banner: 'assets/images/cv.jpg'
+publications_page_banner: 'assets/images/publications.png'
 
 # do you want to show the "read time" of the posts?
 read-time: true

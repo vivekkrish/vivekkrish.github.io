@@ -17,7 +17,7 @@ img { width: 80%; margin: 0 auto; display: block; }
 }
 </style>
 
-![Profile Image]({{ site.url }}/{{ site.publications_header }})
+![Profile Image]({{ site.url }}/{{ site.publications_page_banner }})
 
 <center><h1>{{ page.title }}</h1></center>
 

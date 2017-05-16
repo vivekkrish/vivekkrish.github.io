@@ -14,7 +14,7 @@ img { width: 60%; margin: 0 auto; display: block; }
 }
 </style>
 
-![Profile Image]({{ site.url }}/{{ site.about_header }})
+![Profile Image]({{ site.url }}/{{ site.about_page_banner }})
 
 <p>Hello. My name is Vivek Krishnakumar. I live in Rockville, MD. I am a
 Bioinformatics Engineer at the J. Craig Venter Institute with experience in
