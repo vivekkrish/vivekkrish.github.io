@@ -8,8 +8,9 @@ img { width: 80%; margin: 0 auto; display: block; }
 #bibbase .nav {
     position: inherit;
 }
-#bibbase img.bibbase_icon {
+#bibbase img {
     display: inherit;
+    width: auto !important;
 }
 #bibbase .author {
     padding: 0;
@@ -21,4 +22,4 @@ img { width: 80%; margin: 0 auto; display: block; }
 
 <center><h1>{{ page.title }}</h1></center>
 
-<script src="https://bibbase.org/show?bib={{ site.url }}/{{ site.citations_bib }}&token={{ site.bibbase_token }}&jsonp=1"></script>
+<script src="https://bibbase.org/service/mendeley/{{ site.mendeley_token }}?jsonp=1"></script>

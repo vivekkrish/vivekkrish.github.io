@@ -86,12 +86,17 @@ blog: false
 cv: true
 cv_embed_url: 'https://docs.google.com/document/d/1i-qPoxZryC16uF1ULv5M33Kk8QAeA4fPcRk_zFoWvCQ/pub?embedded=true'
 
-# if you want to include your publications via bibbase.org,
-# set to true and specify source of your citation history
-# in bibtex format
+# if you want to include your publications via bibbase.org, set to true
 publications: true
-citations_bib: 'assets/static/citations.bib'
-bibbase_token: '64de019d02658a039e6f5e29181573ec'
+
+# if specifying source of your publications in bibtex format,
+# use URL scheme: https://bibbase.org/show?bib={{ site.url }}/{{ site.citations_bib }}&token={{ site.bibbase_token }}&jsonp=1
+# citations_bib: 'assets/static/citations.bib'
+# bibbase_token: '64de019d02658a039e6f5e29181573ec'
+#
+# if specifying mendeley as source of publications
+# use URL scheme: https://bibbase.org/service/mendeley/{{ site.mendeley_token }}?jsonp=1
+mendeley_token: '5b47cee1-58c2-3ec3-8bcb-6705001c1867'
 
 # page banner images
 about_page_banner: 'assets/images/about-me.jpg'
