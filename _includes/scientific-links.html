@@ -1,0 +1,47 @@
+    {% if site.scholar %}
+        <a class="link" data-title="scholar.google.com/citations?hl=en&user={{ site.scholar }}" href="https://scholar.google.com/citations?hl=en&user={{ site.scholar }}" target="_blank">
+            <svg class="icon icon-scholar"><use xlink:href="#icon-scholar"></use></svg>
+        </a>
+    {% endif %}
+
+    {% if site.researchgate %}
+        <a class="link" data-title="www.researchgate.net/profile/{{ site.researchgate }}" href="https://www.researchgate.net/profile/{{ site.researchgate }}" target="_blank">
+            <svg class="icon icon-researchgate"><use xlink:href="#icon-researchgate"></use></svg>
+        </a>
+    {% endif %}
+
+    {% if site.mendeley %}
+        <a class="link" data-title="mendeley.com/profiles/{{ site.mendeley }}" href="https://mendeley.com/profiles/{{ site.mendeley }}" target="_blank">
+            <svg class="icon icon-mendeley"><use xlink:href="#icon-mendeley"></use></svg>
+        </a>
+    {% endif %}
+
+    {% if site.pubmed %}
+        <a class="link" data-title="www.ncbi.nlm.nih.gov/myncbi/browse/collection/{{ site.pubmed }}" href="https://www.ncbi.nlm.nih.gov/myncbi/browse/collection/{{ site.pubmed }}" target="_blank">
+            <svg class="icon icon-pubmed"><use xlink:href="#icon-pubmed"></use></svg>
+        </a>
+    {% endif %}
+
+    {% if site.orcid %}
+        <a class="link" data-title="orcid.orf{{ site.orcid }}" href="https://orcid.org/{{ site.orcid }}" target="_blank">
+            <svg class="icon icon-orcid"><use xlink:href="#icon-orcid"></use></svg>
+        </a>
+    {% endif %}
+
+    {% if site.impactstory %}
+        <a class="link" data-title="profiles.impactstory.com/u/{{ site.impactstory }}" href="https://profiles.impactstory.org/u/{{ site.impactstory }}" target="_blank">
+            <svg class="icon icon-impactstory"><use xlink:href="#icon-impactstory"></use></svg>
+        </a>
+    {% endif %}
+
+    {% if site.figshare %}
+    <a class="link" data-title="figshare.com/authors/{{ site.figshare }}" href="https://figshare.com/authors/{{ site.figshare }}" target="_blank">
+            <svg class="icon icon-figshare"><use xlink:href="#icon-figshare"></use></svg>
+        </a>
+    {% endif %}
+
+    {% if site.slideshare %}
+        <a class="link" data-title="slideshare.net/{{ site.slideshare }}" href="https://www.slideshare.net/{{ site.slideshare }}" target="_blank">
+            <svg class="icon icon-slideshare"><use xlink:href="#icon-slideshare"></use></svg>
+        </a>
+    {% endif %}

@@ -28,7 +28,7 @@ permalink: /:title/
 # analytics-piwik-url: 'piwik.my-host.com'
 # analytics-piwik-id: 1
 
-# To enable google tag manager, supply your token below
+# To enable site analytics, supply your token below
 analytics-googletag: 'GTM-NWWZGK'
 
 # if you don't want comments in your posts, leave categories empty
