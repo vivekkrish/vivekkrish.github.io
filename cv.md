@@ -29,7 +29,9 @@ img { width: 80%; margin: 0 auto; display: block; }
 <nav class="nav" style="position: relative; text-align: right;">
     <ul class="list">
         <li class="item">
-            <svg style="position: relative; top: 10px" class="icon icon-download"><use xlink:href="#icon-download"></use></svg>&nbsp;<a href="https://bit.ly/download-cv-vivek" title="Download CV in PDF format">PDF</a>
+            <svg style="position: relative; top: 10px" class="icon icon-download">
+                <use xlink:href="#icon-download"></use>
+            </svg>&nbsp;<a href="{{ site.cv_download_url }}" title="Download CV in PDF format">PDF</a>
         </li>
     </ul>
 </nav>

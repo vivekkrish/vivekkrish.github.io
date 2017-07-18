@@ -16,7 +16,7 @@ resume: false
 resume-external: true
 resume-url: https://google.com/?q=my+resume
 
-url: http://www.vivekkrish.com
+url: //vivekkrish.com
 # your url: http://USERNAME.github.io
 
 permalink: /:title/
@@ -85,6 +85,7 @@ blog: false
 # set it to true and specify the source file URL
 cv: true
 cv_embed_url: 'https://docs.google.com/document/d/1i-qPoxZryC16uF1ULv5M33Kk8QAeA4fPcRk_zFoWvCQ/pub?embedded=true'
+cv_download_url: 'https://bit.ly/download-cv-vivek'
 
 # if you want to include your publications via bibbase.org, set to true
 publications: true
