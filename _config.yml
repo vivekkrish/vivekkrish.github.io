@@ -103,6 +103,7 @@ mendeley_token: '5b47cee1-58c2-3ec3-8bcb-6705001c1867'
 about_page_banner: 'assets/images/about-me.jpg'
 cv_page_banner: 'assets/images/cv.jpg'
 publications_page_banner: 'assets/images/publications.png'
+404_page_banner: 'assets/images/404-meerkat.png'
 
 # do you want to show the "read time" of the posts?
 read-time: true
