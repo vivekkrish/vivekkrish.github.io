@@ -4,7 +4,7 @@ https://keybase.io/vivekkrish
 
 I hereby claim:
 
-  * I am an admin of https://vivekkrish.com
+  * I am an admin of http://vivekkrish.com
   * I am vivekkrish (https://keybase.io/vivekkrish) on keybase.
   * I have a public key with fingerprint 7D84 D849 20CC E3E1 1EE2  AD7B 6D54 E6F5 9B84 F5D6
 
@@ -22,26 +22,26 @@ To do so, I am signing this object:
             "username": "vivekkrish"
         },
         "merkle_root": {
-            "ctime": 1500396922,
-            "hash_meta": "969c4bb3f6495c54c77204f8af1a70549275a82be05fdc113a63947914bef5f5",
-            "seqno": 1258813
+            "ctime": 1500609646,
+            "hash_meta": "d0115fc707d3461f4726f6760741e80987d499d44cec3f96e4b54d4ec4549975",
+            "seqno": 1267703
         },
         "revoke": {
             "sig_ids": [
-                "524fabd13010efea55b6f223a812b2d77df4e62da127574947a5aad2ec5f999f0f"
+                "25c4b6d05cea6c8ff773032b8a90e909447652f22e998d183bccb161b85c00f10f"
             ]
         },
         "service": {
             "hostname": "vivekkrish.com",
-            "protocol": "https:"
+            "protocol": "http:"
         },
         "type": "web_service_binding",
         "version": 1
     },
-    "ctime": 1500396932,
+    "ctime": 1500609773,
     "expire_in": 157680000,
-    "prev": "904bb8bd9eb14f854e99103d844f5f3e7fc3db8826eecfc53729091ab10d9975",
-    "seqno": 25,
+    "prev": "01f69b9a35e1aa5cc286afefe2d6bc041bff8404810cbf7fc8de19ed84b26177",
+    "seqno": 28,
     "tag": "signature"
 }
 
@@ -51,26 +51,26 @@ which yields the signature:
 Version: Keybase OpenPGP v2.0.73
 Comment: https://keybase.io/crypto
 
-yMK5AnicrZNtiBVVGMfvuu1qW7F9MCEK0kkjZF3OOTPnzJxbW0kUEQUJSbuaXc/r
-3vHunbnOzN5t07skRsEi9ILrh8otDNMk0E0QXD+UshvBUr5+0M3AAkNxF5TohdDq
-maUIqo/NDAxz5v88z//5nedM3NZcaGvaPv7trvPD7dWmqWMv9Rd6oq5XNjky1oNO
-cZNTMXMv06dNmpUqoXaKDsL5HTBrtTRCISECxBFhxATacJ8qzydYM4OlZdgNqNU0
-CFzGJHGJ0sRllnlIOB2ODaNek9SSMMogra8DDx5OkFLGNRgbQ4T2JdPUM8xSLgPP
-Us0gsByneQSYkyI1nWEMa/BRmrP3H/r/2Xf/XDqfKYQsClypGA/cQGuiFUeSIh9p
-jnkuTE0SiaoBdT2sm0olCdOy0+hwqiap9JlSEsdZjldlYS7CFCGXM04ItCjScqlq
-MgGxsKQ8KV2oz6minvJ9gjwbCIuFjygg86kIiDQIPCuMXcFc7vkce9JYaik4Sc3G
-KIYKBFrCLjhITD2umLx4GvYCuNQprnUo8ayQGrsAylgjKJXMEuKKABNJtO9rC2iJ
-Fhgq+h7UEFQITYyilnNukXXWNfJiST1Uc8nznfoXgU4VV8FTLYmzWMV98K+cZbW0
-mJPJBmu5eMDI0p9pSjKMNEwKRNRNkoZxBH2A8h/QXIBmXqyFiSmFuYL6LEBw5XVM
-PaeIgGEgNTcSAzwYEs4xcmHkYEysa3yrXC2DgDBjlFXU9QlHHAuJYTthPP6mSCj4
-FL2QE9hFIutPjNM49tnzNxWa2gqtLfPyI1Rou/n2vw7Wh7sXFLamtc+nnt6x+MwW
-Xp755VV76O7xbf3LLjxw6erM7DPXe07sGVny8FTvW6sfH+o5cKhj5/XvGvLUpZFz
-028WXp8dZc+uu2/Lj5f3Ffe9sWpyz+5PBw5/vbF978DZHd+svPJ298dfLZ8eu7U9
-3N91csPSns7k3BG2piW8dpLrpi9em22O7vxosrsx+cETVy5cfOr45h9WD4w9SVZF
-Jw5e3nl068uj03dN7Hpk0cyje1vfIcMrlj638uffgumhgwsvfmIfG/aHw3fvUa3b
-hsaXLOo6vnDkzIJlN35KNt878eXYe/MenCiev7/52lV/7e8vdK8/3W5/HRwk72+/
-saLlDnv0lofQ7PeLlx9W6zeMzj+9hv4B6jqH0w==
-=8HMu
+yMK6AnicrVNbaB1FGD6pppqIlxql+qA1S0IVw8nM7lyjRWpKH2LxEmht0PawO/NP
+znoue7q7OTamEWwQoxhqIZVG+1CrpdKHgsqhxhY1wXqLIlLrhbbBFnwQVERpQKjB
+2aCI6KM7C8vOfP/3f//3//PelZfkWpsm3zp34MwzV1ea5maHh3ID23b8OOIEkR52
+ekacEix9oKwhSQulUDs9DsLZEswYHYCvkO8LJJHLXBAaJKeKcBdrBjgwDHuCGk2F
+8BgLXM9V2vWYYQT5TpdjwuogxLU4rKaWlmtB7CtdpBR4gDGA62seME0JMENlIIih
+mtnAYpRkEVZc4CeQDyO7Z38KS/L+A/8/6x5aouNMIWSQ8ALFpPCE1q5WEgUUcaQl
+lhkwgbjqV8Ci62EdSqU4TIrOaJdTgbhUhkIcRWlmr0rDDIQpQgxJRpgt0U+KhQqk
+vo3VCGNqFEdce4RhY3VaLZwhTjDYGgTXREpNiALlGcmABJRoAopQu8+pVZLAtmpk
+M7iMc+RZBTHUoxJkyZNw0BqXOD0POa71wPqNqAKfKWEM5x7y3ED4EoFEkhDOqGtc
+F6QUGmelqwAzHAiaeYGRcbaMZsnieqiWyLNO/cuBvIoqVlMtjtJIRWV7VkzTWk9m
+TDpcy7CPQlD4k6UQhFVtB8UG1CFOwqhqy7DIf3pmhXY5sL0WxlAIMwTlTCD7ZGmg
+vtR9w2QgfY8C9n2qlCuYb8CAq1mgELFdN4IgIjBSgeFG2aHAEuxEBi7DnP9toius
+Tn/Qclrrqn46FIMzOvvuw5fmmlpzy5uXZTco19pyzV/3qk1ctrjm/Z/jiWMjU28/
+0rwuXNG3/zr6zfgnV2x+fMXM2fLGW9JNv4/tWfvB/HB+4kmvvePy3h3Lfth1eux8
+25EPZxp3NA73fbpu84uzd5849sbxsa33bTnYdLbw1fF7f2tsvHGhe2r365MHX/3J
+2XfyhXgn+2X629seMBNvthzqveH7oy0d49HJvV9/2fVOh7dp68qZ+69tXz21eOrA
+/IabF1ZdeLr7s4XGrt5w4dn18xfblt9+fefc56fufOq5/tP97fn8/GO4ecAbeum1
+I8bZOVL8df00z+XPHf3uqsXOtWQ63vPgKP3opkL5/H74eGDlmr57xl9+4vBd+1Y1
+n9g+d6F/eu+Z57/YfWt3g/YPbuicfOXiH26agkg=
+=vSK5
 -----END PGP MESSAGE-----
 
 And finally, I am proving ownership of this host by posting or
