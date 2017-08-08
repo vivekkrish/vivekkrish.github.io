@@ -1,6 +1,9 @@
 # main text of home
-name: 'Vivek Krishnakumar'
+name: 
+  &id001
+  'Vivek Krishnakumar'
 bio: 'Bioinformatician at JCVI, currently working on NSF-funded Araport and Legume Federation projects'
+title: *id001
 
 # twitter summary info
 description: A blog about technology and stuff related
