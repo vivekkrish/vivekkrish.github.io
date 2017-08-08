@@ -39,9 +39,8 @@ disqus:
   shortname: mydisqus # enter this from your disqus account
   categories: [blog, project] # only show disqus for posts that have these categories
 
-# if you don't have any of social below, comment the line
-scholar: cLlRcPYAAAAJ
-#facebook: vivekkrish
+# if you don't have any social links below, comment the line
+# facebook: myfacebook
 twitter: vivekkrish
 # google: mygoogle
 instagram: vivekkrish
@@ -50,7 +49,6 @@ linkedin: vivekkrish
 # youtube: myyoutube
 # spotify: myspotify
 github: vivekkrish
-slideshare: vivekkrish
 keybase: vivekkrish
 # lastfm: mylastfm
 # stackoverflow: 7044681/mystackoverflow
@@ -59,15 +57,25 @@ keybase: vivekkrish
 # medium: medium
 # vimeo: myvimeo
 # lanyrd: mylanyrd
-email: http://scr.im/vivekkrish
+email: hello@vivekkrish.com
+
+# if you don't have any scientific social links below, comment the line
+scholar: cLlRcPYAAAAJ
+# researchgate: myresearchgate
+# mendeley: mymendeley
+# pubmed: mypubmed
+# orcid: myorcid
+# impactstory: myimpactstory
+# figshare: myfigshare
+slideshare: vivekkrish
 
 authors:
-    vivekkrish:
-        name: Vivek Krishnakumar
-        bio: Bioinformatics Engineer
-        external-image: false
-        picture: assets/images/profile.jpg
-        twitter: vivekkrish
+  vivekkrish:
+    name: Vivek Krishnakumar
+    bio: Bioinformatics Engineer
+    external-image: false
+    picture: assets/images/profile.jpg
+    twitter: vivekkrish
 
 # do you want a larger site? change the option below
 # options: [normal, large] | default: normal
