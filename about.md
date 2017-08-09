@@ -2,17 +2,6 @@
 title: About
 layout: page
 ---
-<style>
-img { width: 60%; margin: 0 auto; display: block; }
-.alert {
-    margin-bottom: 10px;
-    color: #3c763d;
-    background-color: #dff0d8;
-    padding: 20px;
-    border-color: #d6e9c6;
-    display: none;
-}
-</style>
 
 ![Profile Image]({{ site.url }}/{{ site.about_page_banner }})
 

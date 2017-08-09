@@ -3,20 +3,6 @@ title: Publications
 layout: page
 permalink: /publications/index.html
 ---
-<style>
-img { width: 80%; margin: 0 auto; display: block; }
-#bibbase .nav {
-    position: inherit;
-}
-#bibbase img {
-    display: inherit;
-    width: auto !important;
-}
-#bibbase .author {
-    padding: 0;
-    margin: 0;
-}
-</style>
 
 ![Publications Page Banner]({{ site.url }}/{{ site.publications_page_banner }})
 
