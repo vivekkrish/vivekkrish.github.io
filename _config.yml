@@ -5,8 +5,9 @@ name:
 bio: 'Bioinformatician at JCVI, currently working on NSF-funded Araport and Legume Federation projects'
 title: *id001
 
-# twitter summary info
-description: A blog about technology and stuff related
+# seo plugin info
+description: Personal website of Vivek Krishnakumar, a bioinformatics researcher working at the J. Craig Venter Institute
+author: Vivek Krishnakumar
 
 # if it's an external image, update below for true
 # better with square images
