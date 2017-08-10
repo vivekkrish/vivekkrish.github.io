@@ -50,7 +50,7 @@ linkedin: vivekkrish
 # youtube: myyoutube
 # spotify: myspotify
 github: vivekkrish
-keybase: vivekkrish
+# keybase: mykeybase 
 # lastfm: mylastfm
 # stackoverflow: 7044681/mystackoverflow
 # quora: userquora
@@ -69,6 +69,9 @@ orcid: 0000-0002-5227-0200
 # impactstory: myimpactstory
 # figshare: myfigshare
 slideshare: vivekkrish
+
+# if desired, specify custom order of social links in the array below
+social-links-order: [scholar, orcid, github, slideshare, linkedin, instagram, twitter, email]
 
 authors:
   vivekkrish:
