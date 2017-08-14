@@ -5,8 +5,6 @@ layout: page
 
 ![Profile Image]({{ site.url }}/{{ site.cv_page_banner }})
 
-<center><h1>{{ page.title }}</h1></center>
-
 <nav id="cv-embed-nav" class="nav">
     <ul class="list">
         <li class="item">
