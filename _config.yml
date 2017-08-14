@@ -119,10 +119,11 @@ mendeley_token: '5b47cee1-58c2-3ec3-8bcb-6705001c1867'
 citations_chart: 'https://docs.google.com/spreadsheets/d/1hqxW8rgndDiN_0iWX05UzVCAyAq-SvxT8QeWCEkj15Y/pubchart?oid=612393279&format=interactive'
 
 # page banner images
-about_page_banner: 'assets/images/about-me.jpg'
-cv_page_banner: 'assets/images/cv.jpg'
-publications_page_banner: 'assets/images/publications.png'
-404_page_banner: 'assets/images/404-meerkat.png'
+page-banner:
+  about: 'assets/images/about-me.jpg'
+  curriculum-vitae: 'assets/images/cv.jpg'
+  publications: 'assets/images/publications.png'
+  '404': 'assets/images/404-meerkat.png'
 
 # do you want to show the "read time" of the posts?
 read-time: true

@@ -3,8 +3,6 @@ title: Curriculum-Vitae
 layout: page
 ---
 
-![Profile Image]({{ site.url }}/{{ site.cv_page_banner }})
-
 <nav id="cv-embed-nav" class="nav">
     <ul class="list">
         <li class="item">

@@ -3,8 +3,6 @@ title: About
 layout: page
 ---
 
-![Profile Image]({{ site.url }}/{{ site.about_page_banner }})
-
 <p>Hello. My name is Vivek Krishnakumar. I live in Rockville, MD. I am a
 Bioinformatics Engineer at the J. Craig Venter Institute with experience in
 genome assembly curation, genome structural and functional annotation as well
