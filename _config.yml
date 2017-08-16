@@ -120,7 +120,6 @@ citations_chart: 'https://docs.google.com/spreadsheets/d/1hqxW8rgndDiN_0iWX05UzV
 
 # page banner images
 page-banner:
-  about: 'assets/images/about-me.jpg'
   curriculum-vitae: 'assets/images/cv.jpg'
   publications: 'assets/images/publications.png'
   '404': 'assets/images/404-meerkat.png'

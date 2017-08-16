@@ -1,4 +1,5 @@
-{% if page.title == "Home" %}
+{% if page.title == "Home"
+   or page.title == "About" %}
     {% assign showHeader = true %}
 {% else %}
     {% assign showMinHeader = true %}
