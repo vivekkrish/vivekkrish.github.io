@@ -68,10 +68,11 @@ scholar: cLlRcPYAAAAJ
 orcid: 0000-0002-5227-0200
 # impactstory: myimpactstory
 # figshare: myfigshare
-slideshare: vivekkrish
+# slideshare: myslideshare
+speakerdeck: vivekkrish
 
 # if desired, specify custom order of social links in the array below
-social-links-order: [scholar, orcid, github, slideshare, linkedin, instagram, twitter, email]
+social-links-order: [scholar, orcid, github, speakerdeck, linkedin, instagram, twitter, email]
 
 authors:
   vivekkrish:
