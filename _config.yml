@@ -2,11 +2,11 @@
 name: 
   &id001
   'Vivek Krishnakumar'
-bio: 'Bioinformatician at JCVI, currently working on NSF-funded Araport and Legume Federation projects'
+bio: 'Bioinformatics Software Test Engineer at ILMN, working on verification and validation of Illumina RUO Software'
 title: *id001
 
 # seo plugin info
-description: Personal website of Vivek Krishnakumar, a bioinformatics researcher working at the J. Craig Venter Institute
+description: Personal website of Vivek Krishnakumar, a Bioinformatics Engineer working at Illumina
 author: Vivek Krishnakumar
 
 # if it's an external image, update below for true
@@ -17,8 +17,8 @@ picture: assets/images/profile.jpg
 # If you want to include your resume, set to true
 # and specify source (external or local).
 resume: false
-resume-external: true
-resume-url: https://google.com/?q=my+resume
+# resume-external: true
+# resume-url: https://google.com/?q=my+resume
 
 url: //vivekkrish.com
 # your url: http://USERNAME.github.io
