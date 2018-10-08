@@ -11,7 +11,7 @@ tag:
 - linkout
 star: true
 category: blog
-author: johndoe
+author: vivekkrish
 description: How-to add and configure social links
 ---
 
