@@ -3,31 +3,22 @@ title: About
 layout: page
 ---
 
-<p>Hello. My name is Vivek Krishnakumar. I live in Rockville, MD. I am a
-Bioinformatics Engineer at the J. Craig Venter Institute with experience in
+<p>Hello. My name is Vivek Krishnakumar, currently based in sunny San Diego, CA.
+I am a Bioinformatics Engineer at Illumina Inc. within the Data Analysis Software 
+Test Engineering team, focused on developing bioinformatics utilities to facilitate
+the verification and validation of Illumina RUO software, along with improving and
+maintaining in-house bioinformatics libraries and test automation frameworks.
+</p>
+
+<p>Previously, I was part of the J. Craig Venter Institute, working on plant
 genome assembly curation, genome structural and functional annotation as well
-as developing and maintaining genome data portals for the plant genomics
+as developing and maintaining genome data portals for the Plant Genomics
 research community.</p>
-
-<p>Currently, I am working on <a href="https://www.araport.org">Araport</a>,
-an NSF-funded open-access community resource for Arabidopsis research,
-where I am part of the data integration and annotation team. I work as an
-analyst on the <i>Arabidopsis thaliana</i> genome annotation pipeline, aimed
-towards generating and maintaining a gold-standard reference annotation set.
-I also work on the data integration aspects of Araport, involving data
-warehousing and federation via Web Services.</p>
-
-<h2>Projects</h2>
-
-<ul>
-	<li><a href="https://www.araport.org/">Arabidopsis Information Portal</a></li>
-	<li><a href="http://www.medicagogenome.org/"><i>Medicago truncatula</i> Genome Database (MTGD)</a></li>
-	<li><a href="http://www.legumefederation.org/">Legume Federation</a></li>
-</ul>
 
 <h2>Skills</h2>
 
 <ul class="skill-list">
+	<li>C#</li>
 	<li>Python</li>
 	<li>Perl</li>
 	<li>Java</li>
