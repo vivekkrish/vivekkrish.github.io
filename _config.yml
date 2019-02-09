@@ -66,14 +66,14 @@ scholar: cLlRcPYAAAAJ
 # researchgate: myresearchgate
 # mendeley: mymendeley
 # pubmed: mypubmed
-orcid: 0000-0002-5227-0200
+# orcid: myorcid
 # impactstory: myimpactstory
 # figshare: myfigshare
 # slideshare: myslideshare
 speakerdeck: vivekkrish
 
 # if desired, specify custom order of social links in the array below
-social-links-order: [scholar, orcid, github, speakerdeck, linkedin, instagram, twitter, email]
+social-links-order: [github, linkedin, speakerdeck, scholar, instagram, twitter, email]
 
 authors:
   vivekkrish:
