@@ -33,7 +33,7 @@ permalink: /:title/
 # analytics-piwik-id: 1
 
 # To enable site analytics, supply your token below
-analytics-googletag: 'GTM-NWWZGK'
+analytics-googletag: 'G-DRKNNZ3NKX'
 
 # if you don't want comments in your posts, leave categories empty
 disqus:
