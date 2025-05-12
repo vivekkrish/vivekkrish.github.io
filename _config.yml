@@ -101,7 +101,7 @@ blog: false
 
 # if you want to include your "cv" (via an embed), 
 # set it to true and specify the source file URL
-cv: true
+cv: false
 cv_embed_url: 'https://docs.google.com/document/d/1i-qPoxZryC16uF1ULv5M33Kk8QAeA4fPcRk_zFoWvCQ/pub'
 cv_download_url: 'https://bit.ly/download-cv-vivek'
 
