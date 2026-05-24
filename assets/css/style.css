@@ -643,11 +643,108 @@ button {
   line-height: 1.5;
 }
 
-.skills-card-full h3 {
+.skills-radar-card {
+  background-color: var(--card-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 3rem;
+  box-shadow: var(--card-shadow);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skills-radar-layout {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.skills-list-column h3, .radar-chart-column h3 {
   font-size: 2rem;
   margin-bottom: 2.5rem;
   border-bottom: 1px solid var(--border-color);
   padding-bottom: 1rem;
+}
+
+#radar-chart-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 280px;
+}
+
+/* Radar SVG Styles */
+.radar-grid-poly {
+  fill: none;
+  stroke: var(--border-color);
+  stroke-width: 1px;
+}
+
+.radar-axis-line {
+  stroke: var(--border-color);
+  stroke-width: 1px;
+  transition: stroke 0.3s ease, stroke-width 0.3s ease;
+}
+
+.radar-axis-line.highlighted {
+  stroke: var(--accent);
+  stroke-width: 1.5px;
+}
+
+.radar-area-poly {
+  fill: rgba(var(--accent-rgb), 0.15);
+  stroke: var(--accent);
+  stroke-width: 2px;
+  transition: fill 0.3s ease, stroke 0.3s ease;
+}
+
+.radar-area-poly:hover, .radar-area-poly.highlighted {
+  fill: rgba(var(--accent-rgb), 0.3);
+  stroke: var(--accent-hover);
+}
+
+.radar-vertex-dot {
+  fill: var(--bg-secondary);
+  stroke: var(--accent);
+  stroke-width: 2px;
+  cursor: pointer;
+  transition: r 0.2s ease, fill 0.2s ease, stroke 0.2s ease;
+}
+
+.radar-vertex-dot:hover, .radar-vertex-dot.highlighted {
+  r: 6;
+  fill: var(--accent);
+  stroke: var(--text-primary);
+}
+
+.radar-label {
+  font-family: 'Outfit', sans-serif;
+  font-size: 10px;
+  fill: var(--text-secondary);
+  text-anchor: middle;
+  cursor: pointer;
+  transition: fill 0.2s ease, font-weight 0.2s ease;
+}
+
+.radar-label:hover, .radar-label.highlighted {
+  fill: var(--accent);
+  font-weight: 600;
+}
+
+/* Interactivity links back to skill tags */
+.skill-tag {
+  cursor: pointer;
+}
+
+.skill-tag.accent-highlight {
+  border-color: var(--accent) !important;
+  background-color: rgba(var(--accent-rgb), 0.1) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(var(--accent-rgb), 0.1);
+  color: var(--text-primary) !important;
 }
 
 .skills-grid-horizontal {
@@ -1506,6 +1603,11 @@ pre.bibtex {
   .skills-grid-horizontal {
     grid-template-columns: repeat(2, 1fr);
     gap: 2.5rem;
+  }
+  
+  .skills-radar-layout {
+    grid-template-columns: 1fr;
+    gap: 4rem;
   }
   
   .publications-grid {

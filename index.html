@@ -168,51 +168,64 @@
           </div>
         </div>
 
-        <!-- Bottom Row: Skills & Technologies full width -->
-        <div class="card skills-card-full">
-          <h3>Skills & Technologies</h3>
-          <div class="skills-grid-horizontal">
+        <!-- Bottom Row: Skills & Technologies with Radar Chart -->
+        <div class="card skills-radar-card">
+          <div class="skills-radar-layout">
             
-            <div class="skills-column">
-              <h4>Languages</h4>
-              <div class="skills-tags">
-                <span class="skill-tag">C# (.NET)</span>
-                <span class="skill-tag">Python</span>
-                <span class="skill-tag">Perl</span>
-                <span class="skill-tag">Java</span>
-                <span class="skill-tag">Shell Scripting</span>
-                <span class="skill-tag">HTML / CSS / JS</span>
+            <div class="skills-list-column">
+              <h3>Skills & Technologies</h3>
+              <div class="skills-grid-horizontal">
+                
+                <div class="skills-column">
+                  <h4>Languages</h4>
+                  <div class="skills-tags">
+                    <span class="skill-tag">C# (.NET)</span>
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">Perl</span>
+                    <span class="skill-tag">Java</span>
+                    <span class="skill-tag">Shell Scripting</span>
+                    <span class="skill-tag">HTML / CSS / JS</span>
+                  </div>
+                </div>
+
+                <div class="skills-column">
+                  <h4>Databases & Cloud</h4>
+                  <div class="skills-tags">
+                    <span class="skill-tag">PostgreSQL</span>
+                    <span class="skill-tag">MySQL</span>
+                    <span class="skill-tag">Amazon Web Services (AWS)</span>
+                    <span class="skill-tag">Docker</span>
+                  </div>
+                </div>
+
+                <div class="skills-column">
+                  <h4>GenAI & LLMOps</h4>
+                  <div class="skills-tags">
+                    <span class="skill-tag">Cursor</span>
+                    <span class="skill-tag">AWS Bedrock</span>
+                    <span class="skill-tag">Opencode</span>
+                    <span class="skill-tag">Langfuse</span>
+                  </div>
+                </div>
+
+                <div class="skills-column">
+                  <h4>Tools & Practices</h4>
+                  <div class="skills-tags">
+                    <span class="skill-tag">Git & GitFlow</span>
+                    <span class="skill-tag">Bioinformatics Pipelines (WDL/Nextflow)</span>
+                    <span class="skill-tag">CI/CD (Jenkins, GitHub Actions)</span>
+                    <span class="skill-tag">Test Validation & Automation</span>
+                    <span class="skill-tag">Agile Scrum / JIRA</span>
+                  </div>
+                </div>
+
               </div>
             </div>
 
-            <div class="skills-column">
-              <h4>Databases & Cloud</h4>
-              <div class="skills-tags">
-                <span class="skill-tag">PostgreSQL</span>
-                <span class="skill-tag">MySQL</span>
-                <span class="skill-tag">Amazon Web Services (AWS)</span>
-                <span class="skill-tag">Docker</span>
-              </div>
-            </div>
-
-            <div class="skills-column">
-              <h4>GenAI & LLMOps</h4>
-              <div class="skills-tags">
-                <span class="skill-tag">Cursor</span>
-                <span class="skill-tag">AWS Bedrock</span>
-                <span class="skill-tag">Opencode</span>
-                <span class="skill-tag">Langfuse</span>
-              </div>
-            </div>
-
-            <div class="skills-column">
-              <h4>Tools & Practices</h4>
-              <div class="skills-tags">
-                <span class="skill-tag">Git & GitFlow</span>
-                <span class="skill-tag">Bioinformatics Pipelines (WDL/Nextflow)</span>
-                <span class="skill-tag">CI/CD (Jenkins, GitHub Actions)</span>
-                <span class="skill-tag">Test Validation & Automation</span>
-                <span class="skill-tag">Agile Scrum / JIRA</span>
+            <div class="radar-chart-column">
+              <h3>Domain Expertise Map</h3>
+              <div id="radar-chart-wrapper">
+                <div class="chart-loading">Loading expertise map...</div>
               </div>
             </div>
 

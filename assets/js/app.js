@@ -51,6 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
         initRouter();
         initThemeManager();
         initCvAccordion();
+        initSkillsRadarChart();
         
         // Dynamically load Google Scholar publications list
         loadPublicationsAndRender();
@@ -512,6 +513,226 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     wrapper.appendChild(svg);
+  }
+
+  const RADAR_DATA = [
+    { 
+      label: "Quality Engineering", 
+      value: 0.95, 
+      skills: ["git & gitflow", "ci/cd (jenkins, github actions)", "test validation & automation", "agile scrum / jira"] 
+    },
+    { 
+      label: "Pipeline Orchestration", 
+      value: 0.90, 
+      skills: ["bioinformatics pipelines (wdl/nextflow)"] 
+    },
+    { 
+      label: "Genomic Analysis", 
+      value: 0.95, 
+      skills: ["dragen verification", "clinical research workflows"] 
+    },
+    { 
+      label: "Platform Infra", 
+      value: 0.85, 
+      skills: ["c# (.net)", "python", "perl", "java", "shell scripting", "html / css / js", "postgresql", "mysql", "amazon web services (aws)", "docker"] 
+    },
+    { 
+      label: "GenAI & LLMOps", 
+      value: 0.75, 
+      skills: ["cursor", "aws bedrock", "opencode", "langfuse"] 
+    },
+    { 
+      label: "Academic Genomics", 
+      value: 0.85, 
+      skills: ["jcvi", "araport"] 
+    }
+  ];
+
+  function initSkillsRadarChart() {
+    const wrapper = document.getElementById('radar-chart-wrapper');
+    if (!wrapper) return;
+
+    wrapper.innerHTML = ''; // Clear loading message
+
+    const size = 260;
+    const center = size / 2;
+    const rMax = 80;
+    const domainCount = RADAR_DATA.length;
+
+    // Angles
+    const angles = [];
+    for (let i = 0; i < domainCount; i++) {
+      angles.push(-Math.PI / 2 + (i * 2 * Math.PI) / domainCount);
+    }
+
+    // Build SVG
+    const svgNamespace = "http://www.w3.org/2000/svg";
+    const svg = document.createElementNS(svgNamespace, "svg");
+    svg.setAttribute("width", size);
+    svg.setAttribute("height", size);
+    svg.setAttribute("viewBox", `0 0 ${size} ${size}`);
+    svg.style.overflow = "visible";
+
+    // 1. Draw Concentric Grid Polygons (Levels: 0.25, 0.50, 0.75, 1.0)
+    const levels = [0.25, 0.5, 0.75, 1.0];
+    levels.forEach(level => {
+      const points = angles.map((angle, idx) => {
+        const x = center + rMax * level * Math.cos(angle);
+        const y = center + rMax * level * Math.sin(angle);
+        return `${x},${y}`;
+      }).join(' ');
+
+      const poly = document.createElementNS(svgNamespace, "polygon");
+      poly.setAttribute("points", points);
+      poly.setAttribute("class", "radar-grid-poly");
+      svg.appendChild(poly);
+    });
+
+    // 2. Draw Axis Lines
+    const axisLines = [];
+    angles.forEach((angle, idx) => {
+      const x = center + rMax * Math.cos(angle);
+      const y = center + rMax * Math.sin(angle);
+
+      const line = document.createElementNS(svgNamespace, "line");
+      line.setAttribute("x1", center);
+      line.setAttribute("y1", center);
+      line.setAttribute("x2", x);
+      line.setAttribute("y2", y);
+      line.setAttribute("class", "radar-axis-line");
+      line.id = `radar-axis-${idx}`;
+      svg.appendChild(line);
+      axisLines.push(line);
+    });
+
+    // 3. Draw Skill Area Polygon
+    const skillPoints = angles.map((angle, idx) => {
+      const val = RADAR_DATA[idx].value;
+      const x = center + rMax * val * Math.cos(angle);
+      const y = center + rMax * val * Math.sin(angle);
+      return `${x},${y}`;
+    }).join(' ');
+
+    const skillArea = document.createElementNS(svgNamespace, "polygon");
+    skillArea.setAttribute("points", skillPoints);
+    skillArea.setAttribute("class", "radar-area-poly");
+    svg.appendChild(skillArea);
+
+    // 4. Draw Vertex Dots
+    const dots = [];
+    angles.forEach((angle, idx) => {
+      const val = RADAR_DATA[idx].value;
+      const x = center + rMax * val * Math.cos(angle);
+      const y = center + rMax * val * Math.sin(angle);
+
+      const circle = document.createElementNS(svgNamespace, "circle");
+      circle.setAttribute("cx", x);
+      circle.setAttribute("cy", y);
+      circle.setAttribute("r", "4");
+      circle.setAttribute("class", "radar-vertex-dot");
+      circle.id = `radar-dot-${idx}`;
+      
+      // Bind hover events
+      bindHoverToDomain(circle, idx);
+      
+      svg.appendChild(circle);
+      dots.push(circle);
+    });
+
+    // 5. Draw Axis Labels
+    const labels = [];
+    angles.forEach((angle, idx) => {
+      const cos = Math.cos(angle);
+      const sin = Math.sin(angle);
+      
+      // Fine-tuned placement offset
+      let offsetR = rMax + 18;
+      if (Math.abs(cos) < 0.1) {
+        offsetR = rMax + 14; // vertical labels closer
+      }
+      
+      const x = center + offsetR * cos;
+      const y = center + offsetR * sin + (sin > 0.5 ? 4 : (sin < -0.5 ? -2 : 2)); // slight vertical adjustment
+
+      const text = document.createElementNS(svgNamespace, "text");
+      text.setAttribute("x", x);
+      text.setAttribute("y", y);
+      text.setAttribute("class", "radar-label");
+      text.id = `radar-label-${idx}`;
+      text.textContent = RADAR_DATA[idx].label;
+
+      // Adjust text-anchor based on position
+      if (cos > 0.1) {
+        text.setAttribute("text-anchor", "start");
+      } else if (cos < -0.1) {
+        text.setAttribute("text-anchor", "end");
+      } else {
+        text.setAttribute("text-anchor", "middle");
+      }
+
+      bindHoverToDomain(text, idx);
+
+      svg.appendChild(text);
+      labels.push(text);
+    });
+
+    wrapper.appendChild(svg);
+
+    // Dynamic Skill Tags hover setup
+    const skillTags = document.querySelectorAll('.skill-tag');
+    skillTags.forEach(tag => {
+      const text = tag.textContent.trim().toLowerCase();
+      const domainIdx = RADAR_DATA.findIndex(d => d.skills.includes(text));
+
+      if (domainIdx !== -1) {
+        tag.addEventListener('mouseenter', () => {
+          highlightDomain(domainIdx);
+        });
+        tag.addEventListener('mouseleave', () => {
+          clearHighlights();
+        });
+      }
+    });
+
+    // Helper to highlight everything in a domain
+    function highlightDomain(idx) {
+      // 1. Highlight SVG components
+      const dot = document.getElementById(`radar-dot-${idx}`);
+      const line = document.getElementById(`radar-axis-${idx}`);
+      const label = document.getElementById(`radar-label-${idx}`);
+
+      if (dot) dot.classList.add('highlighted');
+      if (line) line.classList.add('highlighted');
+      if (label) label.classList.add('highlighted');
+
+      // 2. Highlight matching skill tags
+      const domainSkills = RADAR_DATA[idx].skills;
+      skillTags.forEach(tag => {
+        const text = tag.textContent.trim().toLowerCase();
+        if (domainSkills.includes(text)) {
+          tag.classList.add('accent-highlight');
+        }
+      });
+    }
+
+    function clearHighlights() {
+      // Clear SVG highlights
+      document.querySelectorAll('.radar-vertex-dot').forEach(el => el.classList.remove('highlighted'));
+      document.querySelectorAll('.radar-axis-line').forEach(el => el.classList.remove('highlighted'));
+      document.querySelectorAll('.radar-label').forEach(el => el.classList.remove('highlighted'));
+
+      // Clear tag highlights
+      skillTags.forEach(tag => tag.classList.remove('accent-highlight'));
+    }
+
+    function bindHoverToDomain(element, idx) {
+      element.addEventListener('mouseenter', () => {
+        highlightDomain(idx);
+      });
+      element.addEventListener('mouseleave', () => {
+        clearHighlights();
+      });
+    }
   }
 
   function generateBibtex(pub) {
