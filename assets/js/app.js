@@ -26,13 +26,13 @@ document.addEventListener('DOMContentLoaded', () => {
   // ------------------------------------------------------------------------
   function initApp() {
     Promise.all([
-      fetch('assets/resources/config.json').then(response => {
+      fetch('assets/resources/profile_config.json').then(response => {
         if (!response.ok) {
           throw new Error('Config file not found or corrupted.');
         }
         return response.json();
       }),
-      fetch('assets/resources/scholar_stats.json').then(response => {
+      fetch('assets/resources/citation_metrics.json').then(response => {
         if (!response.ok) {
           throw new Error('Scholar stats file not found or corrupted.');
         }
@@ -177,6 +177,17 @@ document.addEventListener('DOMContentLoaded', () => {
           targetPanel.classList.add('active-panel');
           window.scrollTo(0, 0);
 
+          // Dynamically update page title
+          if (configData) {
+            const pageName = hash === '#home' ? '' : hash.replace('#', '');
+            if (pageName) {
+              const displayPage = pageName === 'cv' ? 'CV' : pageName.charAt(0).toUpperCase() + pageName.slice(1);
+              document.title = `${displayPage} | ${configData.name} — ${configData.title}`;
+            } else {
+              document.title = `${configData.name} | ${configData.title}`;
+            }
+          }
+
 
 
           // Special handling: rebuild citation chart when publications is viewed so it gets correct width
@@ -241,9 +252,10 @@ document.addEventListener('DOMContentLoaded', () => {
     let width = canvas.width = window.innerWidth;
     let height = canvas.height = window.innerHeight;
 
-    // Load animation setting
+    // Load animation setting, respecting system preference first
     const savedAnimState = localStorage.getItem('animationState');
-    if (savedAnimState === 'off') {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (savedAnimState === 'off' || (savedAnimState === null && prefersReducedMotion)) {
       animationRunning = false;
       if (toggleBtn) toggleBtn.textContent = 'Animation: Off';
     }
@@ -392,152 +404,7 @@ document.addEventListener('DOMContentLoaded', () => {
     return true;
   }
 
-  function extractDoisAndFetchMetrics() {
-    const wrapper = document.getElementById('bibbase-wrapper');
-    if (!wrapper) return;
 
-    const doiLinks = wrapper.querySelectorAll('a[href*="doi.org"]');
-    const dois = [];
-    
-    doiLinks.forEach(a => {
-      const href = a.getAttribute('href');
-      if (!href) return;
-      // Match DOI pattern: 10.xxxx/xxxx
-      const match = href.match(/doi\.org\/(10\.\d{4,9}\/[^\s?#&]+)/i);
-      if (match) {
-        let doi = match[1].toLowerCase();
-        // Remove trailing punctuation
-        doi = doi.replace(/[.,;:/]$/, '');
-        if (!dois.includes(doi)) {
-          dois.push(doi);
-        }
-      }
-    });
-
-    if (dois.length > 0) {
-      fetchOpenAlexMetricsForDois(dois);
-    } else {
-      console.warn("No DOIs found in bibliography. Falling back to ORCID profile.");
-      fetchOpenAlexMetricsFallback(configData.orcid);
-    }
-  }
-
-  function fetchOpenAlexMetricsForDois(dois) {
-    // OpenAlex allows querying multiple DOIs at once using OR filter (doi:doi1|doi2|...)
-    const chunkLimit = 50; // Keep request sizes safe
-    const chunks = [];
-    for (let i = 0; i < dois.length; i += chunkLimit) {
-      chunks.push(dois.slice(i, i + chunkLimit));
-    }
-
-    const fetchPromises = chunks.map(chunk => {
-      const filterStr = chunk.map(d => `doi:${d}`).join('|');
-      const apiUrl = `https://api.openalex.org/works?filter=${filterStr}&per_page=100`;
-      return fetch(apiUrl).then(res => {
-        if (!res.ok) throw new Error('CORS or network error');
-        return res.json();
-      });
-    });
-
-    Promise.all(fetchPromises)
-      .then(resultsArray => {
-        // Merge results
-        let allWorks = [];
-        resultsArray.forEach(res => {
-          if (res.results) {
-            allWorks = allWorks.concat(res.results);
-          }
-        });
-
-        // Compute metrics
-        const citations = allWorks.map(w => w.cited_by_count || 0).sort((a, b) => b - a);
-        const totalCitations = citations.reduce((sum, c) => sum + c, 0);
-        
-        // Calculate h-index
-        let hIndex = 0;
-        for (let i = 0; i < citations.length; i++) {
-          if (citations[i] >= i + 1) {
-            hIndex = i + 1;
-          } else {
-            break;
-          }
-        }
-
-        // Calculate i10-index
-        const i10Index = citations.filter(c => c >= 10).length;
-        const totalPapers = dois.length; // Curated paper count (24)
-
-        // Update stats UI
-        document.querySelector('#stat-citations .stat-num').textContent = totalCitations.toLocaleString();
-        document.querySelector('#stat-hindex .stat-num').textContent = hIndex;
-        document.querySelector('#stat-i10index .stat-num').textContent = i10Index;
-        document.querySelector('#stat-papers .stat-num').textContent = totalPapers;
-
-        // Compute yearly citations
-        const yearlyCitations = {};
-        allWorks.forEach(w => {
-          if (w.counts_by_year) {
-            w.counts_by_year.forEach(c => {
-              yearlyCitations[c.year] = (yearlyCitations[c.year] || 0) + c.cited_by_count;
-            });
-          }
-        });
-
-        // Convert to array of {year, cited_by_count}
-        const countsByYear = Object.keys(yearlyCitations).map(y => {
-          return { year: parseInt(y), cited_by_count: yearlyCitations[y] };
-        }).sort((a, b) => a.year - b.year);
-
-        // Render chart
-        if (countsByYear.length > 0) {
-          buildCitationSvgChart(countsByYear);
-        } else {
-          document.getElementById('citations-chart-wrapper').innerHTML = '<div class="chart-loading">No citation history available.</div>';
-        }
-      })
-      .catch(err => {
-        console.error('Failed to load OpenAlex DOI metrics:', err);
-        fetchOpenAlexMetricsFallback(configData.orcid);
-      });
-  }
-
-  function fetchOpenAlexMetricsFallback(orcid) {
-    if (!orcid) {
-      applyBaselineStats();
-      return;
-    }
-
-    const apiUrl = `https://api.openalex.org/authors/https://orcid.org/${orcid}`;
-    fetch(apiUrl)
-      .then(res => res.json())
-      .then(data => {
-        // Fallback to merged OpenAlex author, but override total counts to match Scholar profile
-        document.querySelector('#stat-citations .stat-num').textContent = '5,200+'; // Manual Scholar baseline
-        document.querySelector('#stat-hindex .stat-num').textContent = '17';
-        document.querySelector('#stat-i10index .stat-num').textContent = '24';
-        document.querySelector('#stat-papers .stat-num').textContent = '24';
-        
-        if (data.counts_by_year) {
-          const sortedCounts = [...data.counts_by_year].sort((a, b) => a.year - b.year);
-          buildCitationSvgChart(sortedCounts);
-        }
-      })
-      .catch(() => {
-        applyBaselineStats();
-      });
-  }
-
-  function applyBaselineStats() {
-    document.querySelector('#stat-citations .stat-num').textContent = '5,200+';
-    document.querySelector('#stat-hindex .stat-num').textContent = '17';
-    document.querySelector('#stat-i10index .stat-num').textContent = '24';
-    document.querySelector('#stat-papers .stat-num').textContent = '24';
-    document.getElementById('citations-chart-wrapper').innerHTML = 
-      '<div class="chart-loading" style="text-align: center; padding: 2rem;">' +
-      'Live citation chart temporarily unavailable.' +
-      '<br><span style="font-size: 1.2rem; color: var(--text-muted);">Please reload page or visit your <a href="https://scholar.google.com/citations?user=cLlRcPYAAAAJ" target="_blank">Google Scholar profile</a>.</span>' +
-      '</div>';
-  }
 
   function buildCitationSvgChart(data) {
     const wrapper = document.getElementById('citations-chart-wrapper');
@@ -647,11 +514,49 @@ document.addEventListener('DOMContentLoaded', () => {
     wrapper.appendChild(svg);
   }
 
+  function generateBibtex(pub) {
+    let firstAuthor = 'author';
+    if (pub.authors) {
+      const parts = pub.authors.split(',');
+      if (parts.length > 0) {
+        const firstPart = parts[0].trim();
+        const nameParts = firstPart.split(/\s+/);
+        if (nameParts.length > 0) {
+          firstAuthor = nameParts[nameParts.length - 1].toLowerCase().replace(/[^a-z0-9]/g, '');
+        }
+      }
+    }
+    const year = pub.year || 'unknown';
+    let firstTitleWord = 'title';
+    if (pub.title) {
+      const titleParts = pub.title.trim().split(/\s+/);
+      if (titleParts.length > 0) {
+        firstTitleWord = titleParts[0].toLowerCase().replace(/[^a-z0-9]/g, '');
+      }
+    }
+    const key = `${firstAuthor}${year}${firstTitleWord}`;
+    
+    let entry = `@article{${key},\n`;
+    entry += `  title={${pub.title}},\n`;
+    entry += `  author={${pub.authors}},\n`;
+    if (pub.venue) {
+      entry += `  journal={${pub.venue}},\n`;
+    }
+    if (pub.year) {
+      entry += `  year={${pub.year}},\n`;
+    }
+    if (pub.cite_url) {
+      entry += `  url={${pub.cite_url}}\n`;
+    }
+    entry += `}`;
+    return entry;
+  }
+
   // ------------------------------------------------------------------------
   // 6. Google Scholar Bibliography Loader
   // ------------------------------------------------------------------------
   function loadPublicationsAndRender() {
-    fetch('assets/resources/publications.json')
+    fetch('assets/resources/publications_list.json')
       .then(response => {
         if (!response.ok) {
           throw new Error('Publications file not found.');
@@ -762,6 +667,22 @@ document.addEventListener('DOMContentLoaded', () => {
           </a>`;
         }
 
+        // High Impact Highlight check (>= 100 citations)
+        let impactBadgeHtml = '';
+        if (pub.citations >= 100) {
+          li.classList.add('high-impact');
+          impactBadgeHtml = `<span class="pub-impact-badge" title="Highly cited publication (100+ citations)">
+            <svg viewBox="0 0 24 24" width="10" height="10" style="margin-right: 4px; fill: currentColor;"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            High Impact
+          </span>`;
+        }
+
+        // Cite (BibTeX copy) Button
+        const citeCopyBtnHtml = `<button class="pub-copy-btn" title="Copy BibTeX Citation">
+          <svg viewBox="0 0 24 24" width="12" height="12"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+          <span class="copy-btn-text">Cite</span>
+        </button>`;
+
         // Venue details
         const venueHtml = pub.venue ? `<span class="pub-venue">${pub.venue}</span>` : '';
 
@@ -772,10 +693,33 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="pub-meta">
               ${venueHtml}
               ${citeBadgeHtml}
+              ${impactBadgeHtml}
+              ${citeCopyBtnHtml}
             </div>
           </div>
         `;
         pubList.appendChild(li);
+
+        // Bind citation copy click handler
+        const copyBtn = li.querySelector('.pub-copy-btn');
+        if (copyBtn) {
+          copyBtn.addEventListener('click', () => {
+            const bibtex = generateBibtex(pub);
+            navigator.clipboard.writeText(bibtex).then(() => {
+              const textSpan = copyBtn.querySelector('.copy-btn-text');
+              if (textSpan) {
+                textSpan.textContent = 'Copied!';
+                copyBtn.classList.add('copied');
+                setTimeout(() => {
+                  textSpan.textContent = 'Cite';
+                  copyBtn.classList.remove('copied');
+                }, 2000);
+              }
+            }).catch(err => {
+              console.error('Could not copy BibTeX:', err);
+            });
+          });
+        }
       });
 
       contentDiv.appendChild(pubList);
@@ -827,6 +771,17 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
           details.classList.add('expanded');
           details.style.maxHeight = details.scrollHeight + 'px';
+        }
+      });
+
+      // Keyboard support for Enter/Space keypress
+      header.addEventListener('keydown', (e) => {
+        if (e.target.closest('a')) {
+          return;
+        }
+        if (e.key === ' ' || e.key === 'Enter') {
+          e.preventDefault();
+          header.click();
         }
       });
     });

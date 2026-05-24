@@ -117,20 +117,20 @@ def parse_scholar_html(html):
     return stats, sorted_history, publications
 
 def main():
-    config_path = "assets/resources/config.json"
-    scholar_stats_path = "assets/resources/scholar_stats.json"
-    pub_path = "assets/resources/publications.json"
+    config_path = "assets/resources/profile_config.json"
+    scholar_stats_path = "assets/resources/citation_metrics.json"
+    pub_path = "assets/resources/publications_list.json"
     
     if not os.path.exists(config_path):
-        print(f"Error: {config_path} not found.")
-        return
+      print(f"Error: {config_path} not found.")
+      return
         
     with open(config_path, "r", encoding="utf-8") as f:
         config = json.load(f)
         
     scholar_id = config.get("scholar")
     if not scholar_id:
-        print("Error: 'scholar' key not found in config.json.")
+        print("Error: 'scholar' key not found in profile_config.json.")
         return
         
     print(f"Fetching Google Scholar data for user: {scholar_id}...")

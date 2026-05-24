@@ -314,17 +314,26 @@ button {
   z-index: 1;
 }
 
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .view-panel {
   display: none;
   opacity: 0;
   transform: translateY(15px);
-  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .view-panel.active-panel {
   display: block;
-  opacity: 1;
-  transform: translateY(0);
+  animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 /* Shared Panel Headings */
@@ -603,6 +612,12 @@ button {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+}
+
+.scope-icon svg {
+  width: 2.2rem;
+  height: 2.2rem;
+  color: var(--accent);
 }
 
 .scope-text strong {
@@ -1031,6 +1046,61 @@ pre.bibtex {
   font-size: 1.45rem;
   line-height: 1.6;
   color: var(--text-secondary);
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.pub-item.high-impact {
+  border-left: 3px solid var(--accent-secondary) !important;
+  padding-left: 1.5rem;
+  background-color: rgba(13, 148, 136, 0.02); /* accent-secondary tint */
+}
+
+.pub-impact-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background-color: rgba(13, 148, 136, 0.08); /* accent-secondary tint */
+  color: var(--accent-secondary);
+  border: 1px solid rgba(13, 148, 136, 0.15);
+  padding: 0.2rem 0.8rem;
+  border-radius: 20px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.pub-copy-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background-color: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  padding: 0.2rem 0.8rem;
+  border-radius: 20px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pub-copy-btn:hover {
+  background-color: var(--bg-primary);
+  color: var(--accent);
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.pub-copy-btn svg {
+  fill: currentColor;
+}
+
+.pub-copy-btn.copied {
+  background-color: rgba(13, 148, 136, 0.1) !important;
+  color: var(--accent-secondary) !important;
+  border-color: var(--accent-secondary) !important;
 }
 
 .pub-item:first-of-type {
@@ -1198,6 +1268,12 @@ pre.bibtex {
   align-items: center;
   width: 100%;
   cursor: pointer;
+}
+
+.cv-company-header:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: 8px;
 }
 
 .cv-company-header-left {
