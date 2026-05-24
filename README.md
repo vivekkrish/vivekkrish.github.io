@@ -12,7 +12,7 @@ Personal portfolio hosted at [vivekkrish.com](https://vivekkrish.com), built as 
 | Styling | Vanilla CSS3 (custom properties, responsive grid, dark/light theme) |
 | Logic | Vanilla JavaScript ES6 (no frameworks) |
 | Publications | [BibBase](https://bibbase.org) (Google Scholar feed, embedded dynamically) |
-| Citation Stats | Google Scholar (scraped daily by GHA → stored in `scholar_stats.json`) |
+| Citation Stats | Google Scholar (scraped daily by GHA → stored in `assets/resources/scholar_stats.json`) |
 | Hosting | GitHub Pages (auto-deploy on push to `master`) |
 | Automation | GitHub Actions (daily Scholar sync cron) |
 
@@ -23,18 +23,19 @@ Personal portfolio hosted at [vivekkrish.com](https://vivekkrish.com), built as 
 ```
 vivekkrish.github.io/
 ├── index.html                        # SPA shell: all views (Home, About, Publications, CV)
-├── config.json                       # Site config: bio, social handles, orcid
-├── scholar_stats.json                # Google Scholar citation stats & history (auto-updated)
-├── publications.json                 # List of publications (auto-updated)
 ├── CNAME                             # Custom domain (vivekkrish.com)
 ├── keybase.txt                       # Keybase identity proof
 ├── LICENSE
 ├── assets/
 │   ├── css/style.css                 # Design system, grid layouts, dark/light theme, print overrides
 │   ├── js/app.js                     # Hash router, DNA canvas, Scholar chart, accordion logic, theme engine
-│   └── images/profile.jpg            # Profile photo
+│   ├── images/profile.jpg            # Profile photo
+│   └── resources/
+│       ├── config.json               # Site config: bio, social handles, orcid
+│       ├── scholar_stats.json        # Google Scholar citation stats & history (auto-updated)
+│       └── publications.json         # List of publications (auto-updated)
 └── scripts/
-    └── update_scholar.py             # Scholar scraper: updates scholar_stats.json and publications.json
+    └── update_scholar.py             # Scholar scraper: updates scholar_stats.json and publications.json in assets/resources/
 └── .github/
     └── workflows/
         └── update_scholar.yml        # GHA workflow: daily cron to run update_scholar.py and commit results
@@ -42,7 +43,7 @@ vivekkrish.github.io/
 
 ---
 
-## Configuration (`config.json`)
+## Configuration (`assets/resources/config.json`)
 
 Edit this file to update site content without touching any HTML or JS:
 
@@ -72,7 +73,7 @@ Edit this file to update site content without touching any HTML or JS:
 | `orcid` | ORCID profile ID (for record-keeping/reference) |
 | `socialLinksOrder` | Controls which icons appear on the homepage and in what order |
 
-> **Note:** `mendeleyToken` fields are no longer used. Publications are sourced exclusively from Google Scholar via BibBase, and citation stats are scraped directly from the Scholar profile page and stored in `scholar_stats.json`.
+> **Note:** `mendeleyToken` fields are no longer used. Publications are sourced exclusively from Google Scholar via BibBase, and citation stats are scraped directly from the Scholar profile page and stored in `assets/resources/scholar_stats.json`.
 
 ---
 
@@ -82,15 +83,15 @@ Citation stats, the annual citation chart, and the publication bibliography list
 
 ### How it works
 
-1. **`scripts/update_scholar.py`** — Reads the `scholar` ID from `config.json`, scrapes your Google Scholar profile page (`scholar.google.com/citations?user=<id>`), and extracts:
-   - Total citations, h-index, i10-index, and paper count (written to `scholar_stats.json`)
-   - Per-year citation history (written to `scholar_stats.json`)
-   - Scraped publications metadata list (written to `publications.json`)
+1. **`scripts/update_scholar.py`** — Reads the `scholar` ID from `assets/resources/config.json`, scrapes your Google Scholar profile page (`scholar.google.com/citations?user=<id>`), and extracts:
+   - Total citations, h-index, i10-index, and paper count (written to `assets/resources/scholar_stats.json`)
+   - Per-year citation history (written to `assets/resources/scholar_stats.json`)
+   - Scraped publications metadata list (written to `assets/resources/publications.json`)
 
 2. **`.github/workflows/update_scholar.yml`** — A GitHub Actions workflow that:
    - Runs on a **daily cron schedule** (8:00 UTC)
    - Can also be triggered manually via `workflow_dispatch`
-   - Checks out the repo, runs the scraper script, and commits/pushes updates to `scholar_stats.json` and `publications.json` back to `master`
+   - Checks out the repo, runs the scraper script, and commits/pushes updates to `assets/resources/scholar_stats.json` and `assets/resources/publications.json` back to `master`
 
 ### Running the scraper manually
 
@@ -104,7 +105,7 @@ python scripts/update_scholar.py
 
 ## Local Development
 
-The site fetches `config.json` at runtime, so it must be served through a local HTTP server (browsers block `file://` cross-origin reads).
+The site fetches `assets/resources/config.json` at runtime, so it must be served through a local HTTP server (browsers block `file://` cross-origin reads).
 
 ```bash
 # Python (built-in)

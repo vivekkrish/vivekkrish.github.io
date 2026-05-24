@@ -30,7 +30,7 @@ jobs:
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           
           # Stage files and check if there are modifications
-          git add scholar_stats.json publications.json
+          git add assets/resources/scholar_stats.json assets/resources/publications.json
           if ! git diff --cached --quiet; then
             git commit -m "Auto-update Google Scholar metrics & publications [skip ci]"
             git push

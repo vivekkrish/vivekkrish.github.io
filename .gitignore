@@ -11,3 +11,10 @@ ehthumbs.db
 *.njsproj
 *.sln
 *.swp
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/

@@ -117,9 +117,9 @@ def parse_scholar_html(html):
     return stats, sorted_history, publications
 
 def main():
-    config_path = "config.json"
-    scholar_stats_path = "scholar_stats.json"
-    pub_path = "publications.json"
+    config_path = "assets/resources/config.json"
+    scholar_stats_path = "assets/resources/scholar_stats.json"
+    pub_path = "assets/resources/publications.json"
     
     if not os.path.exists(config_path):
         print(f"Error: {config_path} not found.")

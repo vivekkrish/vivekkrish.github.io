@@ -26,13 +26,13 @@ document.addEventListener('DOMContentLoaded', () => {
   // ------------------------------------------------------------------------
   function initApp() {
     Promise.all([
-      fetch('config.json').then(response => {
+      fetch('assets/resources/config.json').then(response => {
         if (!response.ok) {
           throw new Error('Config file not found or corrupted.');
         }
         return response.json();
       }),
-      fetch('scholar_stats.json').then(response => {
+      fetch('assets/resources/scholar_stats.json').then(response => {
         if (!response.ok) {
           throw new Error('Scholar stats file not found or corrupted.');
         }
@@ -651,7 +651,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // 6. Google Scholar Bibliography Loader
   // ------------------------------------------------------------------------
   function loadPublicationsAndRender() {
-    fetch('publications.json')
+    fetch('assets/resources/publications.json')
       .then(response => {
         if (!response.ok) {
           throw new Error('Publications file not found.');
