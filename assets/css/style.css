@@ -829,9 +829,8 @@ button {
    -------------------------------------------------------------------------- */
 .citation-dashboard {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 2.5rem;
-  margin-bottom: 3.5rem;
 }
 
 .stat-card {
@@ -867,11 +866,29 @@ button {
   font-weight: 600;
 }
 
-.publications-grid {
+.publications-top-row {
+  display: grid;
+  grid-template-columns: 1.2fr 1.8fr;
+  gap: 3.5rem;
+  align-items: stretch;
+  margin-bottom: 3.5rem;
+}
+
+.bibliography-split-layout {
   display: grid;
   grid-template-columns: 1.2fr 1.8fr;
   gap: 3.5rem;
   align-items: start;
+}
+
+.featured-column h3, .archive-column h3 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 2rem;
+  margin-bottom: 2.5rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 1rem;
+  display: flex;
+  align-items: center;
 }
 
 .chart-card {
@@ -1639,7 +1656,12 @@ pre.bibtex {
     gap: 4rem;
   }
   
-  .publications-grid {
+  .publications-top-row {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+  }
+
+  .bibliography-split-layout {
     grid-template-columns: 1fr;
     gap: 3.5rem;
   }
@@ -1768,6 +1790,76 @@ pre.bibtex {
     gap: 2rem;
   }
 }
+
+/* Featured Publications styles */
+.featured-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.featured-card {
+  background-color: var(--card-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--border-color);
+  border-left: 4px solid var(--accent);
+  border-radius: 12px;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.featured-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+.featured-card .pub-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 1rem;
+  display: block;
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.featured-card .pub-title:hover {
+  color: var(--accent);
+}
+
+.featured-card .pub-authors {
+  font-size: 1.3rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+.featured-card .pub-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.2rem;
+  font-size: 1.2rem;
+  margin-top: auto;
+}
+
+.featured-card .pub-year-badge {
+  background-color: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  color: var(--accent);
+  padding: 0.2rem 0.8rem;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+
 
 /* --------------------------------------------------------------------------
    12. Print Optimization Stylesheet

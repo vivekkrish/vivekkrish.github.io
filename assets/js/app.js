@@ -789,7 +789,7 @@ document.addEventListener('DOMContentLoaded', () => {
       })
       .catch(err => {
         console.error('Failed to load publications:', err);
-        const wrapper = document.getElementById('bibbase-wrapper');
+        const wrapper = document.getElementById('archive-wrapper');
         if (wrapper) {
           wrapper.innerHTML = 'Unable to fetch publications automatically.<br>' +
             '<span style="font-size: 1.2rem; color: var(--text-muted);">' +
@@ -800,11 +800,13 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function renderPublicationsList(publications) {
-    const wrapper = document.getElementById('bibbase-wrapper');
-    if (!wrapper) return;
+    const featuredWrapper = document.getElementById('featured-wrapper');
+    const archiveWrapper = document.getElementById('archive-wrapper');
+    if (!featuredWrapper || !archiveWrapper) return;
 
     if (!publications || publications.length === 0) {
-      wrapper.innerHTML = '<div class="bib-loading">No publications found.</div>';
+      archiveWrapper.innerHTML = '<div class="bib-loading">No publications found.</div>';
+      featuredWrapper.innerHTML = '<div class="bib-loading">No publications found.</div>';
       return;
     }
 
@@ -813,6 +815,101 @@ document.addEventListener('DOMContentLoaded', () => {
       const yA = a.year || 0;
       const yB = b.year || 0;
       return yB - yA;
+    });
+
+    // Extract featured publications (configurable via configData)
+    let featuredPublications = [];
+    if (configData && configData.featuredPublications && configData.featuredPublications.length > 0) {
+      configData.featuredPublications.forEach(cfgTitle => {
+        const found = publications.find(pub => 
+          pub.title.toLowerCase().includes(cfgTitle.toLowerCase())
+        );
+        if (found) {
+          featuredPublications.push(found);
+        }
+      });
+    }
+
+    // Fallback if none configured or configured not found
+    if (featuredPublications.length === 0) {
+      const sortedForFeatured = [...publications].sort((a, b) => (b.citations || 0) - (a.citations || 0));
+      featuredPublications = sortedForFeatured.slice(0, 3);
+    }
+
+    featuredWrapper.innerHTML = '';
+    archiveWrapper.innerHTML = '';
+
+    // Render Featured Publications Section
+    let featuredCardsHtml = '';
+    featuredPublications.forEach(pub => {
+      let titleHtml = '';
+      if (pub.cite_url) {
+        titleHtml = `<a href="${pub.cite_url}" target="_blank" rel="noopener" class="pub-title">${pub.title}</a>`;
+      } else {
+        titleHtml = `<span class="pub-title">${pub.title}</span>`;
+      }
+
+      const highlightedAuthors = highlightAuthorSelf(pub.authors);
+
+      let citeBadgeHtml = '';
+      if (pub.citations > 0) {
+        const cUrl = pub.citations_url || '#';
+        citeBadgeHtml = `<a href="${cUrl}" target="_blank" rel="noopener" class="pub-cite-badge" title="View citations on Google Scholar">
+          <svg viewBox="0 0 24 24" width="12" height="12"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/></svg>
+          Cited by ${pub.citations.toLocaleString()}
+        </a>`;
+      }
+
+      const citeCopyBtnHtml = `<button class="pub-copy-btn featured-copy-btn" title="Copy BibTeX Citation">
+        <svg viewBox="0 0 24 24" width="12" height="12"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+        <span class="copy-btn-text">Cite</span>
+      </button>`;
+
+      const venueHtml = pub.venue ? `<span class="pub-venue">${pub.venue}</span>` : '';
+      const yearHtml = pub.year ? `<span class="pub-year-badge">${pub.year}</span>` : '';
+
+      featuredCardsHtml += `
+        <div class="featured-card">
+          <div class="pub-body">
+            ${titleHtml}
+            <div class="pub-authors">${highlightedAuthors}</div>
+          </div>
+          <div class="pub-meta">
+            ${yearHtml}
+            ${venueHtml}
+            ${citeBadgeHtml}
+            ${citeCopyBtnHtml}
+          </div>
+        </div>
+      `;
+    });
+
+    featuredWrapper.innerHTML = `
+      <div class="featured-grid">
+        ${featuredCardsHtml}
+      </div>
+    `;
+
+    // Bind citation copy click handler for featured cards
+    const featuredCopyBtns = featuredWrapper.querySelectorAll('.featured-copy-btn');
+    featuredCopyBtns.forEach((copyBtn, idx) => {
+      const pub = featuredPublications[idx];
+      copyBtn.addEventListener('click', () => {
+        const bibtex = generateBibtex(pub);
+        navigator.clipboard.writeText(bibtex).then(() => {
+          const textSpan = copyBtn.querySelector('.copy-btn-text');
+          if (textSpan) {
+            textSpan.textContent = 'Copied!';
+            copyBtn.classList.add('copied');
+            setTimeout(() => {
+              textSpan.textContent = 'Cite';
+              copyBtn.classList.remove('copied');
+            }, 2000);
+          }
+        }).catch(err => {
+          console.error('Could not copy BibTeX:', err);
+        });
+      });
     });
 
     // Group publications by year
@@ -825,7 +922,6 @@ document.addEventListener('DOMContentLoaded', () => {
       groups[yearStr].push(pub);
     });
 
-    wrapper.innerHTML = ''; // Clear loading message
 
     // Render group by group
     const sortedYears = Object.keys(groups).sort((a, b) => {
@@ -945,7 +1041,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       contentDiv.appendChild(pubList);
       groupDiv.appendChild(contentDiv);
-      wrapper.appendChild(groupDiv);
+      archiveWrapper.appendChild(groupDiv);
 
       // Accordion Event Listener
       headerBtn.addEventListener('click', () => {

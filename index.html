@@ -244,27 +244,28 @@
         <span class="panel-subheading">Live academic metrics and bibliography</span>
       </div>
 
-      <!-- Citation Stats Dashboard (OpenAlex powered) -->
-      <div class="citation-dashboard">
-        <div class="stat-card" id="stat-citations">
-          <span class="stat-num">--</span>
-          <span class="stat-label">Citations</span>
+      <!-- Top Row: Metrics (2x2) and Chart side-by-side -->
+      <div class="publications-top-row">
+        <!-- Citation Stats Dashboard -->
+        <div class="citation-dashboard">
+          <div class="stat-card" id="stat-citations">
+            <span class="stat-num">--</span>
+            <span class="stat-label">Citations</span>
+          </div>
+          <div class="stat-card" id="stat-papers">
+            <span class="stat-num">--</span>
+            <span class="stat-label">Total Papers</span>
+          </div>
+          <div class="stat-card" id="stat-hindex">
+            <span class="stat-num">--</span>
+            <span class="stat-label">h-index</span>
+          </div>
+          <div class="stat-card" id="stat-i10index">
+            <span class="stat-num">--</span>
+            <span class="stat-label">i10-index</span>
+          </div>
         </div>
-        <div class="stat-card" id="stat-hindex">
-          <span class="stat-num">--</span>
-          <span class="stat-label">h-index</span>
-        </div>
-        <div class="stat-card" id="stat-i10index">
-          <span class="stat-num">--</span>
-          <span class="stat-label">i10-index</span>
-        </div>
-        <div class="stat-card" id="stat-papers">
-          <span class="stat-num">--</span>
-          <span class="stat-label">Total Papers</span>
-        </div>
-      </div>
 
-      <div class="publications-grid">
         <!-- Citation Graph -->
         <div class="card chart-card">
           <div class="chart-header">
@@ -276,15 +277,33 @@
             <div class="chart-loading">Loading chart visualization...</div>
           </div>
         </div>
+      </div>
 
-        <!-- Bibliography List -->
-        <div class="card bibliography-card">
-          <div class="bibliography-header">
-            <h3>Bibliography</h3>
-            <span class="bib-meta" id="bib-meta-source">Source: Google Scholar (Auto-updated)</span>
+      <!-- Bottom Row: Bibliography split layout -->
+      <div class="card bibliography-card">
+        <div class="bibliography-header">
+          <h3>Bibliography</h3>
+          <span class="bib-meta" id="bib-meta-source">Source: Google Scholar (Auto-updated)</span>
+        </div>
+        
+        <div class="bibliography-split-layout">
+          <!-- Left Column: Featured Publications -->
+          <div class="featured-column">
+            <h3>
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent); margin-right: 0.5rem;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              Featured Publications
+            </h3>
+            <div id="featured-wrapper">
+              <!-- Injected dynamically by app.js -->
+            </div>
           </div>
-          <div class="bibbase-container-wrapper" id="bibbase-wrapper">
-            <div id="bibbase-loading-msg" class="bib-loading">Loading publications...</div>
+
+          <!-- Right Column: All Publications Collapsed -->
+          <div class="archive-column">
+            <h3>All Publications (by Year)</h3>
+            <div id="archive-wrapper">
+              <div id="bibbase-loading-msg" class="bib-loading">Loading publications...</div>
+            </div>
           </div>
         </div>
       </div>
