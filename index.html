@@ -92,7 +92,7 @@
         <div class="home-intro-text">
           <div class="intro-badge">Executive Profile</div>
           <p id="profile-intro" class="lead-bio">
-            Leading teams of bioinformatics and quality engineers at Illumina to deliver robust, high-performance software systems for genetic data analysis.
+            Leading teams of bioinformatics and test engineers at Illumina to deliver robust, high-performance software systems for genetic data analysis.
           </p>
           <div class="cta-actions">
             <a href="#about" class="btn btn-primary" id="cta-btn-about">Read Biography</a>
@@ -110,12 +110,12 @@
       </div>
 
       <div class="about-layout-container">
-        <!-- Top Row: Narrative & Leadership Scope side-by-side -->
-        <div class="about-top-grid">
-          <div class="card about-bio-card">
+        <!-- Section 2: Professional Narrative (Full Width) -->
+        <div class="card about-bio-card">
+          <div class="about-bio-content">
             <h3>Professional Narrative</h3>
             <p>
-              As an <strong>Associate Director of Bioinformatics</strong> at Illumina, I lead the test engineering teams validating the <strong>DRAGEN Secondary Analysis</strong> platform. My work centers on directing large-scale software quality engineering, applying core software engineering rigor and automation to high-throughput genomic data pipelines.
+              As an <strong>Associate Director of Bioinformatics</strong> at Illumina, I lead the test engineering teams validating the <strong>DRAGEN Secondary Analysis</strong> platform. My work centers on directing large-scale software test engineering, applying core software engineering rigor and automation to high-throughput genomic data pipelines.
             </p>
             <p>
               My career has been defined by bridging biological complexity with scalable software engineering. At Illumina, my organization designs and builds the automated testing frameworks, cloud platform infrastructure, and monitoring systems required for clinical-grade reliability. We treat bioinformatics not just as a research domain, but as an enterprise software discipline demanding clean code, robust architecture, and high-performance execution.
@@ -124,45 +124,46 @@
               This focus on software craftsmanship and genomic data integrity began during my tenure at the <strong>J. Craig Venter Institute (JCVI)</strong>. Over nine years, I led structural annotation efforts and engineered high-throughput public data portals, providing the global research community with the foundational software resources needed to study plant genetics.
             </p>
           </div>
+        </div>
 
-          <div class="card about-leadership-card">
-            <h3>Leadership & Platform Scope</h3>
-            <div class="scope-items grid-layout">
-              <div class="scope-item">
-                <span class="scope-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 10.5C7.5 10.5 8 15 11 15s3.5-6 6.5-6"/><path d="M4.5 15C7.5 15 8 9 11 9s3.5 6 6.5 6"/><path d="M6.5 11.5v1M11 10v4M15.5 11.5v1"/></svg>
-                </span>
-                <div class="scope-text">
-                  <strong><a href="https://www.illumina.com/products/by-type/informatics-products/dragen-secondary-analysis.html" target="_blank" rel="noopener">DRAGEN Verification</a></strong>
-                  <p>Bioinformatics-focused verification of key DRAGEN components: Germline, Somatic, SV, UMI, Amplicon, Biomarkers (TMB, MSI, HLA), and Single-Cell applications.</p>
-                </div>
+        <!-- Section 3: Leadership & Platform Scope (Full Width) -->
+        <div class="card about-leadership-card">
+          <h3>Leadership & Platform Scope</h3>
+          <div class="scope-items grid-layout-horizontal">
+            <div class="scope-item">
+              <span class="scope-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 10.5C7.5 10.5 8 15 11 15s3.5-6 6.5-6"/><path d="M4.5 15C7.5 15 8 9 11 9s3.5 6 6.5 6"/><path d="M6.5 11.5v1M11 10v4M15.5 11.5v1"/></svg>
+              </span>
+              <div class="scope-text">
+                <strong><a href="https://www.illumina.com/products/by-type/informatics-products/dragen-secondary-analysis.html" target="_blank" rel="noopener">DRAGEN Verification</a></strong>
+                <p>Bioinformatics-focused verification of key DRAGEN components: Germline, Somatic, SV, UMI, Amplicon, Biomarkers, and Single-Cell applications.</p>
               </div>
-              <div class="scope-item">
-                <span class="scope-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M12 8v8M8 12h8"/></svg>
-                </span>
-                <div class="scope-text">
-                  <strong><a href="https://help.dragen.illumina.com/product-guides/dragen-v4.5/dragen-apps/dragen-apps" target="_blank" rel="noopener">Clinical Research Workflows</a></strong>
-                  <p>Supporting verification of end-to-end clinical research pipelines, including specialized applications like the Heme workflow.</p>
-                </div>
+            </div>
+            <div class="scope-item">
+              <span class="scope-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M12 8v8M8 12h8"/></svg>
+              </span>
+              <div class="scope-text">
+                <strong><a href="https://help.dragen.illumina.com/product-guides/dragen-v4.5/dragen-apps/dragen-apps" target="_blank" rel="noopener">Clinical Research Workflows</a></strong>
+                <p>Verifying end-to-end clinical research workflows, including Docker/Nextflow-based server pipelines for Solid Tumor (Tumor-Normal) and Heme (Tumor-Only) WGS analysis.</p>
               </div>
-              <div class="scope-item">
-                <span class="scope-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/><line x1="20" y1="6" x2="16" y2="6"/><line x1="20" y1="18" x2="16" y2="18"/></svg>
-                </span>
-                <div class="scope-text">
-                  <strong>Platform Infrastructure</strong>
-                  <p>Engineering a shared bioinformatics data analysis framework (Python/Django/React) for workflow orchestration, and a centralized Data Management portal for baselines and references.</p>
-                </div>
+            </div>
+            <div class="scope-item">
+              <span class="scope-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/><line x1="20" y1="6" x2="16" y2="6"/><line x1="20" y1="18" x2="16" y2="18"/></svg>
+              </span>
+              <div class="scope-text">
+                <strong>Platform Infrastructure</strong>
+                <p>Engineering a shared bioinformatics data analysis framework for workflow orchestration, and a centralized Data Management portal for baselines and references.</p>
               </div>
-              <div class="scope-item">
-                <span class="scope-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-                </span>
-                <div class="scope-text">
-                  <strong>Cluster Observability</strong>
-                  <p>Managing monitoring and observability systems (Grafana/Prometheus) for FPGA compute clusters and internal/cloud infrastructure.</p>
-                </div>
+            </div>
+            <div class="scope-item">
+              <span class="scope-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+              </span>
+              <div class="scope-text">
+                <strong>Cluster Observability</strong>
+                <p>Managing real-time monitoring and observability systems for FPGA compute clusters and internal or cloud-based secondary analysis infrastructure.</p>
               </div>
             </div>
           </div>
@@ -179,10 +180,9 @@
                 <div class="skills-column">
                   <h4>Languages</h4>
                   <div class="skills-tags">
-                    <span class="skill-tag">C# (.NET)</span>
                     <span class="skill-tag">Python</span>
+                    <span class="skill-tag">C# (.NET)</span>
                     <span class="skill-tag">Perl</span>
-                    <span class="skill-tag">Java</span>
                     <span class="skill-tag">Shell Scripting</span>
                     <span class="skill-tag">HTML / CSS / JS</span>
                   </div>
@@ -195,6 +195,8 @@
                     <span class="skill-tag">MySQL</span>
                     <span class="skill-tag">Amazon Web Services (AWS)</span>
                     <span class="skill-tag">Docker</span>
+                    <span class="skill-tag">Grafana</span>
+                    <span class="skill-tag">Prometheus</span>
                   </div>
                 </div>
 
@@ -209,8 +211,9 @@
                 </div>
 
                 <div class="skills-column">
-                  <h4>Tools & Practices</h4>
+                  <h4>Frameworks & Tools</h4>
                   <div class="skills-tags">
+                    <span class="skill-tag">Django</span>
                     <span class="skill-tag">Git & GitFlow</span>
                     <span class="skill-tag">Bioinformatics Pipelines (WDL/Nextflow)</span>
                     <span class="skill-tag">CI/CD (Jenkins, GitHub Actions)</span>

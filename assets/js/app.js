@@ -517,7 +517,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const RADAR_DATA = [
     { 
-      label: "Quality Engineering", 
+      label: "Test Engineering", 
       value: 0.95, 
       skills: ["git & gitflow", "ci/cd (jenkins, github actions)", "test validation & automation", "agile scrum / jira"] 
     },
@@ -534,7 +534,7 @@ document.addEventListener('DOMContentLoaded', () => {
     { 
       label: "Platform Infra", 
       value: 0.85, 
-      skills: ["c# (.net)", "python", "perl", "java", "shell scripting", "html / css / js", "postgresql", "mysql", "amazon web services (aws)", "docker"] 
+      skills: ["python", "django", "c# (.net)", "perl", "shell scripting", "html / css / js", "postgresql", "mysql", "amazon web services (aws)", "docker", "grafana", "prometheus"] 
     },
     { 
       label: "GenAI & LLMOps", 
