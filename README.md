@@ -1,47 +1,55 @@
-# Vivek Krishnakumar - Personal Website (Revamped)
+# Vivek Krishnakumar — Personal Website
 
-This is the repository for my personal website hosted at [vivekkrish.com](https://vivekkrish.com). 
+Personal portfolio hosted at [vivekkrish.com](https://vivekkrish.com), built as a dependency-free static SPA with automated Google Scholar citation syncing via GitHub Actions.
 
-The site has been revamped from an outdated Jekyll theme into a high-performance, modern, and dependency-free static site utilizing clean **HTML5**, **CSS3 (with variables and responsive grids)**, and client-side **JavaScript (ES6)**.
+---
 
-## Advantages of the New Stack
-*   **Zero Dependencies**: No Ruby, Bundler, or Node dependencies to break or go obsolete over time.
-*   **Dynamic Data Syncing**: Your h-index, i10-index, total publications, and a custom SVG citation graph are fetched and rendered **live in the browser** directly from the free [OpenAlex API](https://openalex.org) using your ORCID.
-*   **Configuration-Driven**: Update your bio, email, social links, or order of icons easily by editing `config.json` in the root folder.
-*   **Print-Optimized CV**: Recruits or site visitors can print/save a clean, perfectly structured PDF of your CV directly from the browser print dialog.
+## Stack
+
+| Layer | Technology |
+|---|---|
+| Structure | HTML5 (single-page, hash-routed) |
+| Styling | Vanilla CSS3 (custom properties, responsive grid, dark/light theme) |
+| Logic | Vanilla JavaScript ES6 (no frameworks) |
+| Publications | [BibBase](https://bibbase.org) (Google Scholar feed, embedded dynamically) |
+| Citation Stats | Google Scholar (scraped daily by GHA → stored in `config.json`) |
+| Hosting | GitHub Pages (auto-deploy on push to `master`) |
+| Automation | GitHub Actions (daily Scholar sync cron) |
 
 ---
 
 ## File Structure
+
 ```
 vivekkrish.github.io/
-├── index.html          # Main HTML structure, views, and navigation shell
-├── CNAME               # Custom domain config (vivekkrish.com)
-├── config.json         # Configuration file for bio, titles, and social handles
-├── keybase.txt         # Keybase proof verification
-├── LICENSE             # License file
-└── assets/
-    ├── css/
-    │   └── style.css   # Modern layouts, dark/light themes, print overrides, BibBase overrides
-    ├── js/
-    │   └── app.js      # Router, canvas DNA wave background, OpenAlex chart builder, theme engine
-    └── images/
-        └── profile.jpg # Profile photo
+├── index.html                        # SPA shell: all views (Home, About, Publications, CV)
+├── config.json                       # Site config: bio, social handles, Scholar stats & citation history
+├── CNAME                             # Custom domain (vivekkrish.com)
+├── keybase.txt                       # Keybase identity proof
+├── LICENSE
+├── assets/
+│   ├── css/style.css                 # Design system, grid layouts, dark/light theme, print overrides
+│   ├── js/app.js                     # Hash router, DNA canvas, Scholar chart, accordion logic, theme engine
+│   └── images/profile.jpg            # Profile photo
+└── scripts/
+    └── update_scholar.py             # Scholar scraper: updates scholarStats + citationsHistory in config.json
+└── .github/
+    └── workflows/
+        └── update_scholar.yml        # GHA workflow: daily cron to run update_scholar.py and commit results
 ```
 
 ---
 
 ## Configuration (`config.json`)
 
-To update details on the website, simply edit the `config.json` file in the root directory:
+Edit this file to update site content without touching any HTML or JS:
 
 ```json
 {
   "name": "Vivek Krishnakumar",
   "title": "Associate Director of Bioinformatics",
-  "bio": "Bioinformatics leader managing test engineering...",
-  "orcid": "0000-0002-5227-0200",
-  "mendeleyToken": "5b47cee1-58c2-3ec3-8bcb-6705001c1867",
+  "bio": "...",
+  "scholar": "cLlRcPYAAAAJ",
   "email": "hello@vivekkrish.com",
   "socials": {
     "github": "vivekkrish",
@@ -51,44 +59,80 @@ To update details on the website, simply edit the `config.json` file in the root
     "instagram": "vivekkrish",
     "twitter": "vivekkrish"
   },
-  "socialLinksOrder": ["github", "linkedin", "speakerdeck", "scholar", "instagram", "twitter", "email"]
+  "socialLinksOrder": ["github", "linkedin", "speakerdeck", "scholar", "instagram", "twitter", "email"],
+  "scholarStats": {
+    "citations": 5954,
+    "hIndex": 17,
+    "i10Index": 18,
+    "papersCount": 24
+  },
+  "citationsHistory": [
+    { "year": 2012, "citations": 81 },
+    ...
+  ]
 }
 ```
 
-*   **`orcid`**: Used to fetch live metrics (citations, h-index, i10-index, publication count) and render your annual citation graph.
-*   **`mendeleyToken`**: Used by BibBase to load your Mendeley library dynamically.
-*   **`socialLinksOrder`**: Determines which icons are shown and the exact order they appear on the homepage.
+| Key | Purpose |
+|---|---|
+| `scholar` | Google Scholar profile ID — used by BibBase to load your bibliography |
+| `scholarStats` | Citation metrics rendered on the Publications dashboard; auto-updated daily by GHA |
+| `citationsHistory` | Year-by-year citation counts powering the SVG chart; auto-updated daily by GHA |
+| `socialLinksOrder` | Controls which icons appear on the homepage and in what order |
+
+> **Note:** `orcid` and `mendeleyToken` fields are no longer used. Publications are sourced exclusively from Google Scholar via BibBase, and citation stats are scraped directly from the Scholar profile page.
 
 ---
 
-## Local Development & Previewing
+## Google Scholar Automation
 
-To preview the website locally, you must run it through a local HTTP server so that the browser can load the `config.json` file correctly (browsers block loading local files via `file://` protocols due to security rules).
+Citation stats and the annual citation chart are kept up-to-date automatically — no manual edits needed.
 
-### Propose a Local Server:
+### How it works
 
-#### Option 1: Python (Built into Windows/macOS/Linux)
-Open a terminal in the project directory and run:
+1. **`scripts/update_scholar.py`** — Scrapes your Google Scholar profile page (`scholar.google.com/citations?user=<id>`) and extracts:
+   - Total citations, h-index, i10-index, paper count
+   - Per-year citation history
+   - Writes results back into `config.json` (preserving all other keys)
+
+2. **`.github/workflows/update_scholar.yml`** — A GitHub Actions workflow that:
+   - Runs on a **daily cron schedule** (UTC midnight)
+   - Can also be triggered manually via `workflow_dispatch`
+   - Checks out the repo, installs `scholarly` (Python), runs the scraper, and commits/pushes any changes back to `master`
+
+### Running the scraper manually
+
 ```bash
-python -m http.server 8000
+pip install scholarly
+python scripts/update_scholar.py
 ```
-Then visit: `http://localhost:8000`
 
-#### Option 2: Node.js (via npx)
+---
+
+## Local Development
+
+The site fetches `config.json` at runtime, so it must be served through a local HTTP server (browsers block `file://` cross-origin reads).
+
 ```bash
+# Python (built-in)
+python -m http.server 8000
+
+# Node.js
 npx http-server -p 8000
 ```
-Then visit: `http://localhost:8000`
+
+Then open `http://localhost:8000`.
 
 ---
 
 ## Deployment
 
-Since the site is hosted on GitHub Pages, deploying changes is as simple as committing and pushing:
+GitHub Pages automatically serves the `master` branch root. Push any changes to deploy:
 
 ```bash
 git add .
-git commit -m "Revamp site to clean static stack with OpenAlex citation sync"
-git push origin main
+git commit -m "Your message"
+git push origin master
 ```
-*(Your custom domain `vivekkrish.com` is configured automatically via the `CNAME` file).*
+
+The live site at `vivekkrish.com` will update within ~30 seconds.
