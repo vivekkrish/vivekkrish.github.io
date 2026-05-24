@@ -1,0 +1,39 @@
+name: Update Google Scholar Metrics
+
+on:
+  schedule:
+    # Run daily at 08:00 UTC (01:00 PDT)
+    - cron: '0 8 * * *'
+  workflow_dispatch: # Allows manual trigger from the GitHub Actions tab
+
+jobs:
+  update-scholar:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Essential permission to commit and push changes back to the repository
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-size: '3.10' # Quick load
+
+      - name: Run Scholar Update Script
+        run: python scripts/update_scholar.py
+
+      - name: Commit and Push if config.json changed
+        run: |
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # Check if config.json has modified changes
+          if ! git diff --exit-code config.json; then
+            git add config.json
+            git commit -m "Auto-update Google Scholar metrics & citation history [skip ci]"
+            git push
+          else
+            echo "No changes in Google Scholar citation metrics."
+          fi

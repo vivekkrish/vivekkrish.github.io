@@ -1,0 +1,93 @@
+{
+  "name": "Vivek Krishnakumar",
+  "title": "Associate Director of Bioinformatics",
+  "bio": "Directing software test engineering and infrastructure for Illumina's high-throughput platforms. I bridge genomic data complexity with scalable, domain-transferable software engineering rigor.",
+  "orcid": "0000-0002-5227-0200",
+  "email": "hello@vivekkrish.com",
+  "scholar": "cLlRcPYAAAAJ",
+  "socials": {
+    "github": "vivekkrish",
+    "linkedin": "vivekkrish",
+    "speakerdeck": "vivekkrish",
+    "scholar": "cLlRcPYAAAAJ",
+    "instagram": "vivekkrish",
+    "twitter": "vivekkrish"
+  },
+  "socialLinksOrder": [
+    "github",
+    "linkedin",
+    "speakerdeck",
+    "scholar",
+    "instagram",
+    "twitter",
+    "email"
+  ],
+  "scholarStats": {
+    "citations": 5954,
+    "hIndex": 17,
+    "i10Index": 18,
+    "papersCount": 24
+  },
+  "citationsHistory": [
+    {
+      "year": 2012,
+      "citations": 81
+    },
+    {
+      "year": 2013,
+      "citations": 157
+    },
+    {
+      "year": 2014,
+      "citations": 159
+    },
+    {
+      "year": 2015,
+      "citations": 228
+    },
+    {
+      "year": 2016,
+      "citations": 285
+    },
+    {
+      "year": 2017,
+      "citations": 365
+    },
+    {
+      "year": 2018,
+      "citations": 365
+    },
+    {
+      "year": 2019,
+      "citations": 526
+    },
+    {
+      "year": 2020,
+      "citations": 532
+    },
+    {
+      "year": 2021,
+      "citations": 536
+    },
+    {
+      "year": 2022,
+      "citations": 585
+    },
+    {
+      "year": 2023,
+      "citations": 510
+    },
+    {
+      "year": 2024,
+      "citations": 550
+    },
+    {
+      "year": 2025,
+      "citations": 699
+    },
+    {
+      "year": 2026,
+      "citations": 339
+    }
+  ]
+}
