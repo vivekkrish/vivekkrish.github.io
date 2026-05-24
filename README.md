@@ -12,7 +12,7 @@ Personal portfolio hosted at [vivekkrish.com](https://vivekkrish.com), built as 
 | Styling | Vanilla CSS3 (custom properties, responsive grid, dark/light theme) |
 | Logic | Vanilla JavaScript ES6 (no frameworks) |
 | Publications | [BibBase](https://bibbase.org) (Google Scholar feed, embedded dynamically) |
-| Citation Stats | Google Scholar (scraped daily by GHA → stored in `config.json`) |
+| Citation Stats | Google Scholar (scraped daily by GHA → stored in `scholar_stats.json`) |
 | Hosting | GitHub Pages (auto-deploy on push to `master`) |
 | Automation | GitHub Actions (daily Scholar sync cron) |
 
@@ -23,7 +23,9 @@ Personal portfolio hosted at [vivekkrish.com](https://vivekkrish.com), built as 
 ```
 vivekkrish.github.io/
 ├── index.html                        # SPA shell: all views (Home, About, Publications, CV)
-├── config.json                       # Site config: bio, social handles, Scholar stats & citation history
+├── config.json                       # Site config: bio, social handles, orcid
+├── scholar_stats.json                # Google Scholar citation stats & history (auto-updated)
+├── publications.json                 # List of publications (auto-updated)
 ├── CNAME                             # Custom domain (vivekkrish.com)
 ├── keybase.txt                       # Keybase identity proof
 ├── LICENSE
@@ -32,7 +34,7 @@ vivekkrish.github.io/
 │   ├── js/app.js                     # Hash router, DNA canvas, Scholar chart, accordion logic, theme engine
 │   └── images/profile.jpg            # Profile photo
 └── scripts/
-    └── update_scholar.py             # Scholar scraper: updates scholarStats + citationsHistory in config.json
+    └── update_scholar.py             # Scholar scraper: updates scholar_stats.json and publications.json
 └── .github/
     └── workflows/
         └── update_scholar.yml        # GHA workflow: daily cron to run update_scholar.py and commit results
@@ -50,6 +52,7 @@ Edit this file to update site content without touching any HTML or JS:
   "title": "Associate Director of Bioinformatics",
   "bio": "...",
   "scholar": "cLlRcPYAAAAJ",
+  "orcid": "0000-0002-5227-0200",
   "email": "hello@vivekkrish.com",
   "socials": {
     "github": "vivekkrish",
@@ -59,51 +62,41 @@ Edit this file to update site content without touching any HTML or JS:
     "instagram": "vivekkrish",
     "twitter": "vivekkrish"
   },
-  "socialLinksOrder": ["github", "linkedin", "speakerdeck", "scholar", "instagram", "twitter", "email"],
-  "scholarStats": {
-    "citations": 5954,
-    "hIndex": 17,
-    "i10Index": 18,
-    "papersCount": 24
-  },
-  "citationsHistory": [
-    { "year": 2012, "citations": 81 },
-    ...
-  ]
+  "socialLinksOrder": ["github", "linkedin", "speakerdeck", "scholar", "instagram", "twitter", "email"]
 }
 ```
 
 | Key | Purpose |
 |---|---|
-| `scholar` | Google Scholar profile ID — used by BibBase to load your bibliography |
-| `scholarStats` | Citation metrics rendered on the Publications dashboard; auto-updated daily by GHA |
-| `citationsHistory` | Year-by-year citation counts powering the SVG chart; auto-updated daily by GHA |
+| `scholar` | Google Scholar profile ID — used by BibBase to load your bibliography and by the scraper to fetch stats |
+| `orcid` | ORCID profile ID (for record-keeping/reference) |
 | `socialLinksOrder` | Controls which icons appear on the homepage and in what order |
 
-> **Note:** `orcid` and `mendeleyToken` fields are no longer used. Publications are sourced exclusively from Google Scholar via BibBase, and citation stats are scraped directly from the Scholar profile page.
+> **Note:** `mendeleyToken` fields are no longer used. Publications are sourced exclusively from Google Scholar via BibBase, and citation stats are scraped directly from the Scholar profile page and stored in `scholar_stats.json`.
 
 ---
 
 ## Google Scholar Automation
 
-Citation stats and the annual citation chart are kept up-to-date automatically — no manual edits needed.
+Citation stats, the annual citation chart, and the publication bibliography list are kept up-to-date automatically — no manual edits needed.
 
 ### How it works
 
-1. **`scripts/update_scholar.py`** — Scrapes your Google Scholar profile page (`scholar.google.com/citations?user=<id>`) and extracts:
-   - Total citations, h-index, i10-index, paper count
-   - Per-year citation history
-   - Writes results back into `config.json` (preserving all other keys)
+1. **`scripts/update_scholar.py`** — Reads the `scholar` ID from `config.json`, scrapes your Google Scholar profile page (`scholar.google.com/citations?user=<id>`), and extracts:
+   - Total citations, h-index, i10-index, and paper count (written to `scholar_stats.json`)
+   - Per-year citation history (written to `scholar_stats.json`)
+   - Scraped publications metadata list (written to `publications.json`)
 
 2. **`.github/workflows/update_scholar.yml`** — A GitHub Actions workflow that:
-   - Runs on a **daily cron schedule** (UTC midnight)
+   - Runs on a **daily cron schedule** (8:00 UTC)
    - Can also be triggered manually via `workflow_dispatch`
-   - Checks out the repo, installs `scholarly` (Python), runs the scraper, and commits/pushes any changes back to `master`
+   - Checks out the repo, runs the scraper script, and commits/pushes updates to `scholar_stats.json` and `publications.json` back to `master`
 
 ### Running the scraper manually
 
+No external packages are required (uses Python's standard `urllib` and `re` libraries):
+
 ```bash
-pip install scholarly
 python scripts/update_scholar.py
 ```
 

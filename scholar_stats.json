@@ -1,0 +1,70 @@
+{
+  "scholarStats": {
+    "citations": 5954,
+    "hIndex": 17,
+    "i10Index": 18,
+    "papersCount": 24
+  },
+  "citationsHistory": [
+    {
+      "year": 2012,
+      "citations": 81
+    },
+    {
+      "year": 2013,
+      "citations": 157
+    },
+    {
+      "year": 2014,
+      "citations": 159
+    },
+    {
+      "year": 2015,
+      "citations": 228
+    },
+    {
+      "year": 2016,
+      "citations": 285
+    },
+    {
+      "year": 2017,
+      "citations": 365
+    },
+    {
+      "year": 2018,
+      "citations": 365
+    },
+    {
+      "year": 2019,
+      "citations": 526
+    },
+    {
+      "year": 2020,
+      "citations": 532
+    },
+    {
+      "year": 2021,
+      "citations": 536
+    },
+    {
+      "year": 2022,
+      "citations": 585
+    },
+    {
+      "year": 2023,
+      "citations": 510
+    },
+    {
+      "year": 2024,
+      "citations": 550
+    },
+    {
+      "year": 2025,
+      "citations": 699
+    },
+    {
+      "year": 2026,
+      "citations": 339
+    }
+  ]
+}

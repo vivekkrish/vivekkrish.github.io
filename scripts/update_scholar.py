@@ -118,6 +118,7 @@ def parse_scholar_html(html):
 
 def main():
     config_path = "config.json"
+    scholar_stats_path = "scholar_stats.json"
     pub_path = "publications.json"
     
     if not os.path.exists(config_path):
@@ -143,21 +144,21 @@ def main():
         print(f"i10-index: {stats['i10Index']}")
         print(f"Total Parsed Publications: {len(publications)}")
         
-        # Update config object for stats and history
-        if "scholarStats" not in config:
-            config["scholarStats"] = {}
-            
-        config["scholarStats"]["citations"] = stats["citations"]
-        config["scholarStats"]["hIndex"] = stats["hIndex"]
-        config["scholarStats"]["i10Index"] = stats["i10Index"]
-        config["scholarStats"]["papersCount"] = len(publications) # Automatically keep papers count fresh!
+        # Prepare scholar stats object
+        scholar_stats = {
+            "scholarStats": {
+                "citations": stats["citations"],
+                "hIndex": stats["hIndex"],
+                "i10Index": stats["i10Index"],
+                "papersCount": len(publications)
+            },
+            "citationsHistory": history
+        }
         
-        config["citationsHistory"] = history
-        
-        # Write back to config.json
-        with open(config_path, "w", encoding="utf-8") as f:
-            json.dump(config, f, indent=2, ensure_ascii=False)
-        print(f"Successfully updated {config_path} with live metrics.")
+        # Write to scholar_stats.json
+        with open(scholar_stats_path, "w", encoding="utf-8") as f:
+            json.dump(scholar_stats, f, indent=2, ensure_ascii=False)
+        print(f"Successfully updated {scholar_stats_path} with live metrics.")
         
         # Write publications array to publications.json
         with open(pub_path, "w", encoding="utf-8") as f:

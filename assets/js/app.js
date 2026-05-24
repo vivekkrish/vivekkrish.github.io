@@ -25,16 +25,24 @@ document.addEventListener('DOMContentLoaded', () => {
   // 1. Initial Setup: Load config.json & Render profile details
   // ------------------------------------------------------------------------
   function initApp() {
-    fetch('config.json')
-      .then(response => {
+    Promise.all([
+      fetch('config.json').then(response => {
         if (!response.ok) {
           throw new Error('Config file not found or corrupted.');
         }
         return response.json();
+      }),
+      fetch('scholar_stats.json').then(response => {
+        if (!response.ok) {
+          throw new Error('Scholar stats file not found or corrupted.');
+        }
+        return response.json();
       })
-      .then(config => {
+    ])
+      .then(([config, scholarStats]) => {
         configData = config;
         applyConfig(config);
+        renderScholarStats(scholarStats);
         
         // Setup background canvas
         initBackgroundCanvas();
@@ -117,8 +125,6 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    // 4. Render Google Scholar Stats if available in config.json
-    renderScholarStats(config);
   }
 
   // ------------------------------------------------------------------------
@@ -351,14 +357,14 @@ document.addEventListener('DOMContentLoaded', () => {
   // ------------------------------------------------------------------------
   // 5. OpenAlex API Caller & SVG Citation Chart Builder
   // ------------------------------------------------------------------------
-  function renderScholarStats(config) {
-    if (!config.scholarStats || !config.citationsHistory) return false;
+  function renderScholarStats(statsData) {
+    if (!statsData.scholarStats || !statsData.citationsHistory) return false;
 
     // Update stats UI
-    const citationsVal = config.scholarStats.citations;
-    const hIndexVal = config.scholarStats.hIndex;
-    const i10IndexVal = config.scholarStats.i10Index;
-    const papersVal = config.scholarStats.papersCount;
+    const citationsVal = statsData.scholarStats.citations;
+    const hIndexVal = statsData.scholarStats.hIndex;
+    const i10IndexVal = statsData.scholarStats.i10Index;
+    const papersVal = statsData.scholarStats.papersCount;
 
     const citEl = document.querySelector('#stat-citations .stat-num');
     const hEl = document.querySelector('#stat-hindex .stat-num');
@@ -377,7 +383,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Map citationsHistory {year, citations} to {year, cited_by_count} for buildCitationSvgChart
-    lastCitationsData = config.citationsHistory.map(d => ({
+    lastCitationsData = statsData.citationsHistory.map(d => ({
       year: d.year,
       cited_by_count: d.citations
     }));
