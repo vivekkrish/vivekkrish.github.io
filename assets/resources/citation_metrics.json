@@ -1,6 +1,6 @@
 {
   "scholarStats": {
-    "citations": 5954,
+    "citations": 5963,
     "hIndex": 17,
     "i10Index": 18,
     "papersCount": 24
@@ -8,7 +8,7 @@
   "citationsHistory": [
     {
       "year": 2012,
-      "citations": 81
+      "citations": 80
     },
     {
       "year": 2013,
@@ -16,7 +16,7 @@
     },
     {
       "year": 2014,
-      "citations": 159
+      "citations": 160
     },
     {
       "year": 2015,
@@ -24,7 +24,7 @@
     },
     {
       "year": 2016,
-      "citations": 285
+      "citations": 284
     },
     {
       "year": 2017,
@@ -36,7 +36,7 @@
     },
     {
       "year": 2019,
-      "citations": 526
+      "citations": 527
     },
     {
       "year": 2020,
@@ -48,7 +48,7 @@
     },
     {
       "year": 2022,
-      "citations": 585
+      "citations": 583
     },
     {
       "year": 2023,
@@ -60,11 +60,11 @@
     },
     {
       "year": 2025,
-      "citations": 699
+      "citations": 696
     },
     {
       "year": 2026,
-      "citations": 339
+      "citations": 350
     }
   ]
 }
