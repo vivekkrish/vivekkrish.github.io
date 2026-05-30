@@ -5,19 +5,54 @@ import json
 import os
 
 def fetch_scholar_stats(user_id):
-    # Retrieve all publications by setting pagesize=100
-    url = f"https://scholar.google.com/citations?user={user_id}&hl=en&pagesize=100"
+    # Try multiple regional domains to bypass IP/regional blocks
+    domains = [
+        "scholar.google.com",
+        "scholar.google.co.uk",
+        "scholar.google.ca",
+        "scholar.google.de",
+        "scholar.google.es",
+        "scholar.google.fr",
+        "scholar.google.co.in",
+        "scholar.google.com.au",
+        "scholar.google.ch",
+        "scholar.google.se"
+    ]
+    
     headers = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+        'Accept-Language': 'en-US,en;q=0.9',
+        'Connection': 'keep-alive',
+        'Upgrade-Insecure-Requests': '1',
+        'Cache-Control': 'max-age=0'
     }
     
     ctx = ssl.create_default_context()
     ctx.check_hostname = False
     ctx.verify_mode = ssl.CERT_NONE
     
-    req = urllib.request.Request(url, headers=headers)
-    with urllib.request.urlopen(req, context=ctx) as response:
-        return response.read().decode('utf-8', errors='replace')
+    last_exception = None
+    for domain in domains:
+        url = f"https://{domain}/citations?user={user_id}&hl=en&pagesize=100"
+        headers['Referer'] = f"https://{domain}/"
+        print(f"Attempting to fetch Google Scholar data from: {domain}...")
+        try:
+            req = urllib.request.Request(url, headers=headers)
+            with urllib.request.urlopen(req, context=ctx) as response:
+                html_content = response.read().decode('utf-8', errors='replace')
+                print(f"Successfully fetched Google Scholar data from: {domain}")
+                return html_content
+        except urllib.error.HTTPError as e:
+            print(f"HTTP Error {e.code} when fetching from {domain}")
+            last_exception = e
+        except Exception as e:
+            print(f"Error fetching from {domain}: {e}")
+            last_exception = e
+            
+    if last_exception:
+        raise last_exception
+    raise Exception("Failed to fetch from all Google Scholar domains")
 
 def parse_scholar_html(html):
     # 1. Extract Citation Stats
@@ -116,6 +151,65 @@ def parse_scholar_html(html):
         
     return stats, sorted_history, publications
 
+def fetch_semantic_scholar_stats(author_id):
+    url = f"https://api.semanticscholar.org/graph/v1/author/{author_id}?fields=name,citationCount,hIndex,paperCount,papers.title,papers.year,papers.citationCount,papers.venue,papers.authors,papers.url"
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+    }
+    ctx = ssl.create_default_context()
+    ctx.check_hostname = False
+    ctx.verify_mode = ssl.CERT_NONE
+    
+    req = urllib.request.Request(url, headers=headers)
+    with urllib.request.urlopen(req, context=ctx) as response:
+        data = json.loads(response.read().decode('utf-8'))
+        
+    papers = data.get("papers", [])
+    
+    # Calculate metrics
+    citations = data.get("citationCount", 0)
+    h_index = data.get("hIndex", 0)
+    i10_index = sum(1 for p in papers if p.get("citationCount", 0) >= 10)
+    
+    stats = {
+        "citations": citations,
+        "hIndex": h_index,
+        "i10Index": i10_index,
+        "papersCount": len(papers)
+    }
+    
+    # Map publications
+    publications = []
+    for paper in papers:
+        authors_list = [a.get("name", "") for a in paper.get("authors", [])]
+        authors_str = ", ".join(authors_list)
+        
+        # Match year format
+        year = paper.get("year")
+        if year is not None:
+            try:
+                year = int(year)
+            except ValueError:
+                year = None
+                
+        cite_url = paper.get("url") or ""
+        citations_url = (cite_url + "/citing") if cite_url else ""
+        
+        publications.append({
+            "title": paper.get("title", ""),
+            "authors": authors_str,
+            "venue": paper.get("venue", "") or "",
+            "year": year,
+            "citations": paper.get("citationCount", 0),
+            "cite_url": cite_url,
+            "citations_url": citations_url
+        })
+        
+    # Sort by citations descending
+    publications.sort(key=lambda x: x["citations"], reverse=True)
+    
+    return stats, publications
+
 def main():
     config_path = "assets/resources/profile_config.json"
     scholar_stats_path = "assets/resources/citation_metrics.json"
@@ -134,39 +228,68 @@ def main():
         return
         
     print(f"Fetching Google Scholar data for user: {scholar_id}...")
+    
+    source_used = "Google Scholar"
     try:
         html = fetch_scholar_stats(scholar_id)
         stats, history, publications = parse_scholar_html(html)
-        
-        print("\n--- Scraped Google Scholar Metrics ---")
-        print(f"Citations: {stats['citations']}")
-        print(f"h-index: {stats['hIndex']}")
-        print(f"i10-index: {stats['i10Index']}")
-        print(f"Total Parsed Publications: {len(publications)}")
-        
-        # Prepare scholar stats object
-        scholar_stats = {
-            "scholarStats": {
-                "citations": stats["citations"],
-                "hIndex": stats["hIndex"],
-                "i10Index": stats["i10Index"],
-                "papersCount": len(publications)
-            },
-            "citationsHistory": history
-        }
-        
-        # Write to scholar_stats.json
-        with open(scholar_stats_path, "w", encoding="utf-8") as f:
-            json.dump(scholar_stats, f, indent=2, ensure_ascii=False)
-        print(f"Successfully updated {scholar_stats_path} with live metrics.")
-        
-        # Write publications array to publications.json
-        with open(pub_path, "w", encoding="utf-8") as f:
-            json.dump(publications, f, indent=2, ensure_ascii=False)
-        print(f"Successfully updated {pub_path} with {len(publications)} publications.")
-        
+        print("Successfully fetched and parsed Google Scholar data.")
     except Exception as e:
-        print(f"Error updating Google Scholar stats and publications: {e}")
+        print(f"Failed to fetch Google Scholar data: {e}")
+        
+        semantic_scholar_id = config.get("semanticScholar")
+        if not semantic_scholar_id:
+            print("Error: 'semanticScholar' key not found in profile_config.json. Cannot fall back.")
+            import sys
+            sys.exit(1)
+            
+        print(f"Falling back to Semantic Scholar API for author ID: {semantic_scholar_id}...")
+        try:
+            stats, publications = fetch_semantic_scholar_stats(semantic_scholar_id)
+            print("Successfully fetched and parsed Semantic Scholar data.")
+            source_used = "Semantic Scholar"
+            
+            # Load existing citationsHistory from citation_metrics.json if available
+            history = []
+            if os.path.exists(scholar_stats_path):
+                try:
+                    with open(scholar_stats_path, "r", encoding="utf-8") as f_hist:
+                        existing_data = json.load(f_hist)
+                        history = existing_data.get("citationsHistory", [])
+                        print("Preserved existing citationsHistory from cached metrics.")
+                except Exception as he:
+                    print(f"Warning: Could not read existing citation history: {he}")
+        except Exception as se:
+            print(f"Semantic Scholar fallback also failed: {se}")
+            import sys
+            sys.exit(1)
+        
+    print(f"\n--- Metrics ({source_used}) ---")
+    print(f"Citations: {stats['citations']}")
+    print(f"h-index: {stats['hIndex']}")
+    print(f"i10-index: {stats['i10Index']}")
+    print(f"Total Publications: {len(publications)}")
+    
+    # Prepare stats object
+    scholar_stats = {
+        "scholarStats": {
+            "citations": stats["citations"],
+            "hIndex": stats["hIndex"],
+            "i10Index": stats["i10Index"],
+            "papersCount": len(publications)
+        },
+        "citationsHistory": history
+    }
+    
+    # Write to scholar_stats.json
+    with open(scholar_stats_path, "w", encoding="utf-8") as f:
+        json.dump(scholar_stats, f, indent=2, ensure_ascii=False)
+    print(f"Successfully updated {scholar_stats_path} with live metrics.")
+    
+    # Write publications array to publications.json
+    with open(pub_path, "w", encoding="utf-8") as f:
+        json.dump(publications, f, indent=2, ensure_ascii=False)
+    print(f"Successfully updated {pub_path} with {len(publications)} publications.")
 
 if __name__ == "__main__":
     main()
