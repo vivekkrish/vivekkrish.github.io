@@ -1,218 +1,263 @@
 [
   {
-    "title": "The Medicago genome provides insight into the evolution of rhizobial symbioses",
-    "authors": "ND Young, F Debellé, GED Oldroyd, R Geurts, SB Cannon, MK Udvardi, ...",
-    "venue": "nature 480 (7378), 520-524",
+    "title": "The Medicago Genome Provides Insight into the Evolution of Rhizobial Symbioses",
+    "authors": "N. Young, F. Debelle, G. Oldroyd, R. Geurts, S. Cannon, M. Udvardi, V. Benedito, K. Mayer, J. Gouzy, H. Schoof, Y. Van de Peer, S. Proost, D. Cook, B. Meyers, M. Spannagl, F. Cheung, S. De Mita, V. Krishnakumar, H. Gundlach, Shiguo Zhou, J. Mudge, A. Bharti, J. Murray, Marina Naoumkina, B. Rosen, K. Silverstein, Haibao Tang, S. Rombauts, P. Zhao, P. Zhou, V. Barbe, P. Bardou, Michael Bechner, A. Bellec, A. Berger, H. Bergès, Shelby L. Bidwell, T. Bisseling, N. Choisne, A. Couloux, R. Denny, Shweta Deshpande, X. Dai, J. Doyle, A. Dudez, A. Farmer, S. Fouteau, Carolien Franken, C. Gibelin, J. Gish, Steve Goldstein, Alvaro J. González, P. Green, A. Hallab, M. Hartog, A. Hua, S. Humphray, D. Jeong, Yi Jing, Anika Jöcker, S. Kenton, Dongjin Kim, K. Klee, H. Lai, Chunting Lang, S. Lin, S. Macmil, Ghislaine Magdelenat, L. Matthews, J. McCorrison, Erin L. Monaghan, J. Mun, F. Najar, C. Nicholson, Céline Noirot, Majesta S. O'Bleness, C. Paule, J. Poulain, Florent Prion, B. Qin, Chunmei Qu, E. Retzel, C. Riddle, E. Sallet, S. Samain, Nicolas Samson, Iryna F. Sanders, Olivier Saurat, Claude Scarpelli, T. Schiex, Béatrice Segurens, A. Severin, D. Sherrier, Ruihua Shi, S. Sims, S. Singer, Senjuti Sinharoy, L. Sterck, Agnès Viollet, Bing‐Bing Wang, Keqin Wang, Mingyi Wang, Xiaohong Wang, J. Warfsmann, J. Weissenbach, Doug White, Jim White, G. Wiley, P. Wincker, Yanbo Xing, Limei Yang, Ziyun Yao, Fu Ying, J. Zhai, Liping Zhou, A. Zuber, J. Dénarié, R. Dixon, G. May, D. Schwartz, J. Rogers, F. Quétier, C. Town, B. Roe",
+    "venue": "Nature",
     "year": 2011,
-    "citations": 1489,
-    "cite_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=cLlRcPYAAAAJ&pagesize=100&citation_for_view=cLlRcPYAAAAJ:k8Z6L05lTy4C",
-    "citations_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=17229492959632225936"
+    "citations": 1227,
+    "cite_url": "https://www.semanticscholar.org/paper/95d03b485e82aeef35ef1018a55f7f2687d61a10",
+    "citations_url": "https://www.semanticscholar.org/paper/95d03b485e82aeef35ef1018a55f7f2687d61a10/citing"
   },
   {
     "title": "Araport11: a complete reannotation of the Arabidopsis thaliana reference genome",
-    "authors": "CY Cheng, V Krishnakumar, AP Chan, F Thibaud‐Nissen, S Schobel, ...",
-    "venue": "The Plant Journal 89 (4), 789-804",
-    "year": 2017,
-    "citations": 1446,
-    "cite_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=cLlRcPYAAAAJ&pagesize=100&citation_for_view=cLlRcPYAAAAJ:ruyezt5ZtCIC",
-    "citations_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=4357552117266264055"
+    "authors": "Chia-Yi Cheng, V. Krishnakumar, A. Chan, S. Schobel, C. Town",
+    "venue": "bioRxiv",
+    "year": 2016,
+    "citations": 1103,
+    "cite_url": "https://www.semanticscholar.org/paper/cf3bc986fe09dc358f4e5230171fc6f1fc518ea3",
+    "citations_url": "https://www.semanticscholar.org/paper/cf3bc986fe09dc358f4e5230171fc6f1fc518ea3/citing"
   },
   {
     "title": "Transcriptome and methylome profiling reveals relics of genome dominance in the mesopolyploid Brassica oleracea",
-    "authors": "IAP Parkin, C Koh, H Tang, SJ Robinson, S Kagale, WE Clarke, CD Town, ...",
-    "venue": "Genome biology 15 (6), R77",
+    "authors": "I. Parkin, C. Koh, Haibao Tang, S. J. Robinson, Sateesh Kagale, Sateesh Kagale, Wayne E. Clarke, C. Town, J. Nixon, V. Krishnakumar, Shelby L. Bidwell, H. Belcram, Matthew G. Links, J. Just, Carling Clarke, Tricia Bender, T. Huebert, A. Mason, Chris J. Pires, G. Barker, Jonathan D. Moore, P. Walley, Sahana Manoli, J. Batley, D. Edwards, M. Nelson, Xiyin Wang, A. Paterson, G. King, I. Bancroft, B. Chalhoub, A. Sharpe",
+    "venue": "Genome Biology",
     "year": 2014,
-    "citations": 581,
-    "cite_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=cLlRcPYAAAAJ&pagesize=100&citation_for_view=cLlRcPYAAAAJ:M7yex6snE4oC",
-    "citations_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=14369986677240172233"
+    "citations": 429,
+    "cite_url": "https://www.semanticscholar.org/paper/ef67edd26f6f3ba5b70fc2ffb53267cb1c39aee0",
+    "citations_url": "https://www.semanticscholar.org/paper/ef67edd26f6f3ba5b70fc2ffb53267cb1c39aee0/citing"
   },
   {
-    "title": "An improved genome release (version Mt4. 0) for the model legume Medicago truncatula",
-    "authors": "H Tang, V Krishnakumar, S Bidwell, B Rosen, A Chan, S Zhou, ...",
-    "venue": "BMC genomics 15 (1), 312",
+    "title": "An improved genome release (version Mt4.0) for the model legume Medicago truncatula",
+    "authors": "Haibao Tang, V. Krishnakumar, Shelby L. Bidwell, B. Rosen, A. Chan, Shiguo Zhou, L. Gentzbittel, K. Childs, M. Yandell, H. Gundlach, K. Mayer, D. Schwartz, C. Town",
+    "venue": "BMC Genomics",
     "year": 2014,
-    "citations": 543,
-    "cite_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=cLlRcPYAAAAJ&pagesize=100&citation_for_view=cLlRcPYAAAAJ:kz9GbA2Ns4gC",
-    "citations_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=14866660579054674832"
+    "citations": 396,
+    "cite_url": "https://www.semanticscholar.org/paper/111e8db7b1f2d18be591e328adade0dd6f3aaa96",
+    "citations_url": "https://www.semanticscholar.org/paper/111e8db7b1f2d18be591e328adade0dd6f3aaa96/citing"
   },
   {
-    "title": "ePlant: visualizing and exploring multiple levels of data for hypothesis generation in plant biology",
-    "authors": "J Waese, J Fan, A Pasha, H Yu, G Fucile, R Shi, M Cumming, LA Kelley, ...",
-    "venue": "The Plant Cell 29 (8), 1806-1821",
+    "title": "ePlant: Visualizing and Exploring Multiple Levels of Data for Hypothesis Generation in Plant Biology[OPEN]",
+    "authors": "Jamie Waese, Jim Fan, A. Pasha, H. Yu, Geoffrey Fucile, Ruian Shi, Matthew Cumming, L. Kelley, M. Sternberg, V. Krishnakumar, Erik S. Ferlanti, J. Miller, C. Town, W. Stuerzlinger, N. Provart",
+    "venue": "The Plant Cell",
     "year": 2017,
-    "citations": 488,
-    "cite_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=cLlRcPYAAAAJ&pagesize=100&citation_for_view=cLlRcPYAAAAJ:NXb4pA-qfm4C",
-    "citations_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=984946947460246131"
+    "citations": 321,
+    "cite_url": "https://www.semanticscholar.org/paper/9fd13fee7f6d2033a09003185965ac0bf1bb3432",
+    "citations_url": "https://www.semanticscholar.org/paper/9fd13fee7f6d2033a09003185965ac0bf1bb3432/citing"
   },
   {
     "title": "JCVI: A versatile toolkit for comparative genomics analysis",
-    "authors": "H Tang, V Krishnakumar, X Zeng, Z Xu, A Taranto, JS Lomas, Y Zhang, ...",
-    "venue": "Imeta 3 (4), e211",
+    "authors": "Haibao Tang, V. Krishnakumar, Xiaofei Zeng, Zhougeng Xu, Adam P Taranto, Johnathan S Lomas, Yixing Zhang, Yumin Huang, Yibin Wang, W. C. Yim, Jisen Zhang, Xingtan Zhang",
+    "venue": "iMeta",
     "year": 2024,
-    "citations": 346,
-    "cite_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=cLlRcPYAAAAJ&pagesize=100&citation_for_view=cLlRcPYAAAAJ:IRz6iEL74y4C",
-    "citations_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=12671302045244523221"
+    "citations": 308,
+    "cite_url": "https://www.semanticscholar.org/paper/2c91e6dd707699d65ded1382fb2501ecc65e1ac4",
+    "citations_url": "https://www.semanticscholar.org/paper/2c91e6dd707699d65ded1382fb2501ecc65e1ac4/citing"
   },
   {
-    "title": "Araport: the Arabidopsis information portal",
-    "authors": "V Krishnakumar, MR Hanlon, S Contrino, ES Ferlanti, S Karamycheva, ...",
-    "venue": "Nucleic acids research 43 (D1), D1003-D1009",
-    "year": 2015,
-    "citations": 248,
-    "cite_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=cLlRcPYAAAAJ&pagesize=100&citation_for_view=cLlRcPYAAAAJ:e_rmSamDkqQC",
-    "citations_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=1651082712879887456"
+    "title": "Araport: the Arabidopsis Information Portal",
+    "authors": "V. Krishnakumar, M. Hanlon, S. Contrino, Erik S. Ferlanti, S. Karamycheva, Maria Kim, B. Rosen, Chia-Yi Cheng, Walter Moreira, S. Mock, Joseph Stubbs, J. Sullivan, Konstantinos Krampis, J. Miller, G. Micklem, M. Vaughn, C. Town",
+    "venue": "Nucleic Acids Res.",
+    "year": 2014,
+    "citations": 202,
+    "cite_url": "https://www.semanticscholar.org/paper/5a94bf514e0293391857433afce471a1c008ba78",
+    "citations_url": "https://www.semanticscholar.org/paper/5a94bf514e0293391857433afce471a1c008ba78/citing"
   },
   {
     "title": "Structure of the germline genome of Tetrahymena thermophila and relationship to the massively rearranged somatic genome",
-    "authors": "EP Hamilton, A Kapusta, PE Huvos, SL Bidwell, N Zafar, H Tang, ...",
-    "venue": "elife 5, e19090",
+    "authors": "E. Hamilton, A. Kapusta, P. Huvos, Shelby L. Bidwell, Nikhat Zafar, Haibao Tang, Michalis Hadjithomas, V. Krishnakumar, J. Badger, E. Caler, C. Russ, Q. Zeng, Lin Fan, J. Levin, Terrance Shea, Sarah K. Young, Ryan Hegarty, R. Daza, Sharvari Gujja, J. Wortman, B. Birren, C. Nusbaum, Jainy Thomas, Clayton M. Carey, Ellen J. Pritham, C. Feschotte, Tomoko Noto, Kazufumi Mochizuki, R. Papazyan, Sean D. Taverna, P. Dear, D. Cassidy-Hanley, Jie Xiong, W. Miao, E. Orias, R. S. Coyne",
+    "venue": "eLife",
     "year": 2016,
-    "citations": 177,
-    "cite_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=cLlRcPYAAAAJ&pagesize=100&citation_for_view=cLlRcPYAAAAJ:4fGpz3EwCPoC",
-    "citations_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=8902280124959284232"
+    "citations": 144,
+    "cite_url": "https://www.semanticscholar.org/paper/f332d3c00b091fa0d208fd71120e10dabbbec1ae",
+    "citations_url": "https://www.semanticscholar.org/paper/f332d3c00b091fa0d208fd71120e10dabbbec1ae/citing"
   },
   {
     "title": "MarkerMiner 1.0: A new application for phylogenetic marker development using angiosperm transcriptomes",
-    "authors": "S Chamala, N García, GT Godden, V Krishnakumar, IE Jordon‐Thaden, ...",
-    "venue": "Applications in Plant Sciences 3 (4), 1400115",
+    "authors": "S. Chamala, Nicolás García, Nicolás García, Nicolás García, Grant T. Godden, Grant T. Godden, Grant T. Godden, V. Krishnakumar, Ingrid E Jordon-Thaden, Ingrid E Jordon-Thaden, Riet De Smet, W. B. Barbazuk, D. Soltis, D. Soltis, P. Soltis, P. Soltis",
+    "venue": "Applications in Plant Sciences",
     "year": 2015,
-    "citations": 156,
-    "cite_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=cLlRcPYAAAAJ&pagesize=100&citation_for_view=cLlRcPYAAAAJ:xtoqd-5pKcoC",
-    "citations_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=7306753953351401081"
+    "citations": 120,
+    "cite_url": "https://www.semanticscholar.org/paper/b8d0a4a122b8eb2e52024ba95e9e25b2fec7ae58",
+    "citations_url": "https://www.semanticscholar.org/paper/b8d0a4a122b8eb2e52024ba95e9e25b2fec7ae58/citing"
   },
   {
     "title": "jcvi: JCVI utility libraries",
-    "authors": "H Tang, V Krishnakumar, J Li",
-    "venue": "Zenodo",
+    "authors": "Haibao Tang, Jingping Li, V. Krishnakumar",
+    "venue": "",
     "year": 2015,
-    "citations": 105,
-    "cite_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=cLlRcPYAAAAJ&pagesize=100&citation_for_view=cLlRcPYAAAAJ:_5tno0g5mFcC",
-    "citations_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=1074666165258523848"
+    "citations": 72,
+    "cite_url": "https://www.semanticscholar.org/paper/c3c33ba6803e8970993c91a30c3350129f31fe80",
+    "citations_url": "https://www.semanticscholar.org/paper/c3c33ba6803e8970993c91a30c3350129f31fe80/citing"
   },
   {
-    "title": "MTGD: The Medicago truncatula Genome Database",
-    "authors": "V Krishnakumar, M Kim, BD Rosen, S Karamycheva, SL Bidwell, H Tang, ...",
-    "venue": "Plant and Cell Physiology 56 (1), e1-e1",
+    "title": "MTGD: The Medicago truncatula genome database.",
+    "authors": "V. Krishnakumar, Maria Kim, B. Rosen, S. Karamycheva, Shelby L. Bidwell, Haibao Tang, C. Town",
+    "venue": "Plant and Cell Physiology",
     "year": 2015,
-    "citations": 78,
-    "cite_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=cLlRcPYAAAAJ&pagesize=100&citation_for_view=cLlRcPYAAAAJ:S16KYo8Pm5AC",
-    "citations_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=11956767225861141368"
+    "citations": 70,
+    "cite_url": "https://www.semanticscholar.org/paper/8ba04eb5e41d37d2d2f81ee428c80ddf326e2dd6",
+    "citations_url": "https://www.semanticscholar.org/paper/8ba04eb5e41d37d2d2f81ee428c80ddf326e2dd6/citing"
   },
   {
-    "title": "An ‘eFP‐Seq Browser’for visualizing and exploring RNA sequencing data",
-    "authors": "A Sullivan, PK Purohit, NH Freese, A Pasha, E Esteban, J Waese, A Wu, ...",
-    "venue": "The Plant Journal 100 (3), 641-654",
-    "year": 2019,
-    "citations": 64,
-    "cite_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=cLlRcPYAAAAJ&pagesize=100&citation_for_view=cLlRcPYAAAAJ:XvxMoLDsR5gC",
-    "citations_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=12006961210065602999"
-  },
-  {
-    "title": "JCVI: A versatile toolkit for comparative genomics analysis. iMeta 3, e211",
-    "authors": "H Tang, V Krishnakumar, X Zeng, Z Xu, A Taranto, JS Lomas, Y Zhang, ...",
-    "venue": "DOI",
-    "year": 2024,
-    "citations": 57,
-    "cite_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=cLlRcPYAAAAJ&pagesize=100&citation_for_view=cLlRcPYAAAAJ:IUKN3-7HHlwC",
-    "citations_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=16563858700293987692"
-  },
-  {
-    "title": "ThaleMine: a warehouse for Arabidopsis data integration and discovery",
-    "authors": "V Krishnakumar, S Contrino, CY Cheng, I Belyaeva, ES Ferlanti, JR Miller, ...",
-    "venue": "Plant and Cell Physiology 58 (1), e4-e4",
-    "year": 2017,
-    "citations": 56,
-    "cite_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=cLlRcPYAAAAJ&pagesize=100&citation_for_view=cLlRcPYAAAAJ:9pM33mqn1YgC",
-    "citations_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=1655974569992297026"
-  },
-  {
-    "title": "Hidden genomic evolution in a morphospecies—the landscape of rapidly evolving genes in Tetrahymena",
-    "authors": "J Xiong, W Yang, K Chen, C Jiang, Y Ma, X Chai, G Yan, G Wang, D Yuan, ...",
-    "venue": "PLoS biology 17 (6), e3000294",
+    "title": "An ‘eFP‐Seq Browser’ for visualizing and exploring RNA sequencing data",
+    "authors": "Alexander Joo-Hyun Sullivan, P. Purohit, Nowlan H. Freese, A. Pasha, E. Esteban, Jamie Waese, A. Wu, Michelle Chen, Chih Ying Chin, Richard Song, Snehal R. Watharkar, A. Chan, V. Krishnakumar, M. Vaughn, C. Town, A. Loraine, N. Provart",
+    "venue": "The Plant Journal",
     "year": 2019,
     "citations": 48,
-    "cite_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=cLlRcPYAAAAJ&pagesize=100&citation_for_view=cLlRcPYAAAAJ:HtEfBTGE9r8C",
-    "citations_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=14052710617906701238"
+    "cite_url": "https://www.semanticscholar.org/paper/69fe7dcd0a2a27e4b705bf9d4a0f5de58666dceb",
+    "citations_url": "https://www.semanticscholar.org/paper/69fe7dcd0a2a27e4b705bf9d4a0f5de58666dceb/citing"
   },
   {
-    "title": "A maize database resource that captures tissue-specific and subcellular-localized gene expression, via fluorescent tags and confocal imaging (Maize Cell Genomics Database)",
-    "authors": "V Krishnakumar, Y Choi, E Beck, Q Wu, A Luo, A Sylvester, D Jackson, ...",
-    "venue": "Plant and Cell Physiology 56 (1), e12-e12",
-    "year": 2015,
+    "title": "Transcriptome and methylome profiling reveals relics of genome dominance in the mesopolyploid Brassica oleracea",
+    "authors": "I. Parkin, C. Koh, Haibao Tang, S. J. Robinson, Sateesh Kagale, Wayne E. Clarke, C. Town, J. Nixon, V. Krishnakumar, Shelby L. Bidwell, F. Denoeud, H. Belcram, Matthew G. Links, J. Just, Carling Clarke, Tricia Bender, T. Huebert, A. Mason, J. Pires, G. Barker, Jonathan D. Moore, P. Walley, Sahana Manoli, J. Batley, David Edwards, M. Nelson, Xiyin Wang, A. Paterson, G. King, I. Bancroft, B. Chalhoub, A. Sharpe",
+    "venue": "Genome Biology",
+    "year": 2014,
+    "citations": 41,
+    "cite_url": "https://www.semanticscholar.org/paper/4d71c0e6cebfe5858e69618328c2ad46babdb24d",
+    "citations_url": "https://www.semanticscholar.org/paper/4d71c0e6cebfe5858e69618328c2ad46babdb24d/citing"
+  },
+  {
+    "title": "ThaleMine: A Warehouse for Arabidopsis Data Integration and Discovery",
+    "authors": "V. Krishnakumar, S. Contrino, Chia-Yi Cheng, I. Belyaeva, Erik S. Ferlanti, J. Miller, M. Vaughn, G. Micklem, C. Town, A. Chan",
+    "venue": "Plant and Cell Physiology",
+    "year": 2016,
     "citations": 38,
-    "cite_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=cLlRcPYAAAAJ&pagesize=100&citation_for_view=cLlRcPYAAAAJ:WZBGuue-350C",
-    "citations_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=2643506527260982945"
+    "cite_url": "https://www.semanticscholar.org/paper/671f67d3628bdbc66a297da2cf4c6a15ccfe091a",
+    "citations_url": "https://www.semanticscholar.org/paper/671f67d3628bdbc66a297da2cf4c6a15ccfe091a/citing"
   },
   {
-    "title": "Polyribosomal RNA-Seq reveals the decreased complexity and diversity of the Arabidopsis translatome",
-    "authors": "X Zhang, BD Rosen, H Tang, V Krishnakumar, CD Town",
-    "venue": "PLoS One 10 (2), e0117699",
+    "title": "Hidden genomic evolution in a morphospecies—The landscape of rapidly evolving genes in Tetrahymena",
+    "authors": "Jie Xiong, Wentao Yang, Kai Chen, Chuanqi Jiang, Yang Ma, Xiaocui Chai, Guanxiong Yan, Guangying Wang, Dong-Xia Yuan, Yifan Liu, Shelby L. Bidwell, Nikhat Zafar, Michalis Hadjithomas, V. Krishnakumar, R. S. Coyne, E. Orias, W. Miao",
+    "venue": "PLoS Biology",
+    "year": 2019,
+    "citations": 37,
+    "cite_url": "https://www.semanticscholar.org/paper/db30398fa75692c63cadf154b51c2a812797f82d",
+    "citations_url": "https://www.semanticscholar.org/paper/db30398fa75692c63cadf154b51c2a812797f82d/citing"
+  },
+  {
+    "title": "A maize database resource that captures tissue-specific and subcellular-localized gene expression, via fluorescent tags and confocal imaging (Maize Cell Genomics Database).",
+    "authors": "V. Krishnakumar, Yongwook Choi, Erin Beck, Qingyu Wu, Anding Luo, A. Sylvester, D. Jackson, A. Chan",
+    "venue": "Plant and Cell Physiology",
     "year": 2015,
-    "citations": 23,
-    "cite_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=cLlRcPYAAAAJ&pagesize=100&citation_for_view=cLlRcPYAAAAJ:Dip1O2bNi0gC",
-    "citations_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=15422547723869090191"
+    "citations": 34,
+    "cite_url": "https://www.semanticscholar.org/paper/941fbe724b251342e2e2180e1176f473de294da6",
+    "citations_url": "https://www.semanticscholar.org/paper/941fbe724b251342e2e2180e1176f473de294da6/citing"
+  },
+  {
+    "title": "An improved genome release (version Mt4.0) for the model legume Medicago truncatula",
+    "authors": "Haibao Tang, V. Krishnakumar, Shelby L. Bidwell, Benjamin Rosen, A. Chan, Shiguo Zhou, L. Gentzbittel, K. Childs, M. Yandell, H. Gundlach, K. Mayer, D. Schwartz, C. Town",
+    "venue": "BMC Genomics",
+    "year": 2014,
+    "citations": 31,
+    "cite_url": "https://www.semanticscholar.org/paper/ea3ef4304149d1798b9a6b73a0e2f8274e7778e7",
+    "citations_url": "https://www.semanticscholar.org/paper/ea3ef4304149d1798b9a6b73a0e2f8274e7778e7/citing"
+  },
+  {
+    "title": "ePlant: Visualizing and Exploring 1 Multiple Levels of Data for Hypothesis 2 Generation in Plant Biology",
+    "authors": "Jamie Waese, Jim Fan, A. Pasha, Hans Yu, Geoffrey Fucile, Rui-Jia Shi, Matthew Cumming, L. Kelley, M. Sternberg, V. Krishnakumar, Erik S. Ferlanti, J. Miller, C. Town, W. Stuerzlinger, N. Provart",
+    "venue": "",
+    "year": 2017,
+    "citations": 17,
+    "cite_url": "https://www.semanticscholar.org/paper/5581b58b38630fa31eb7d3c33f6c9ec6a6eb90f2",
+    "citations_url": "https://www.semanticscholar.org/paper/5581b58b38630fa31eb7d3c33f6c9ec6a6eb90f2/citing"
+  },
+  {
+    "title": "Polyribosomal RNA-Seq Reveals the Decreased Complexity and Diversity of the Arabidopsis Translatome",
+    "authors": "Xingtan Zhang, B. Rosen, Haibao Tang, V. Krishnakumar, C. Town",
+    "venue": "PLoS ONE",
+    "year": 2015,
+    "citations": 17,
+    "cite_url": "https://www.semanticscholar.org/paper/17973b7cbd0ef764a06234159c1b9ebe8820b121",
+    "citations_url": "https://www.semanticscholar.org/paper/17973b7cbd0ef764a06234159c1b9ebe8820b121/citing"
   },
   {
     "title": "Araport: an application platform for data discovery",
-    "authors": "MR Hanlon, M Vaughn, S Mock, R Dooley, W Moreira, J Stubbs, C Town, ...",
-    "venue": "Concurrency and Computation: Practice and Experience 27 (16), 4412-4422",
+    "authors": "M. Hanlon, M. Vaughn, S. Mock, R. Dooley, Walter Moreira, Joe Stubbs, C. Town, J. Miller, V. Krishnakumar, Erik S. Ferlanti, Eleanor Pence",
+    "venue": "Concurrency and Computation",
     "year": 2015,
-    "citations": 10,
-    "cite_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=cLlRcPYAAAAJ&pagesize=100&citation_for_view=cLlRcPYAAAAJ:foquWX3nUaYC",
-    "citations_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=3915277495321724982"
-  },
-  {
-    "title": "tanghaibao/jcvi: JCVI v0. 7.5",
-    "authors": "H Tang, V Krishnakumar, J Li, WC Yim",
-    "venue": "Zenodo",
-    "year": 2017,
-    "citations": 9,
-    "cite_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=cLlRcPYAAAAJ&pagesize=100&citation_for_view=cLlRcPYAAAAJ:OTTXONDVkokC",
-    "citations_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=17908084441790229779"
+    "citations": 11,
+    "cite_url": "https://www.semanticscholar.org/paper/f2349c89cfe1277a98f2b9e1048dd9c93c4800d1",
+    "citations_url": "https://www.semanticscholar.org/paper/f2349c89cfe1277a98f2b9e1048dd9c93c4800d1/citing"
   },
   {
     "title": "A web-based software system for dynamic gene cluster comparison across multiple genomes",
-    "authors": "KV Revanna, V Krishnakumar, Q Dong",
-    "venue": "Bioinformatics 25 (7), 956-957",
+    "authors": "K. V. Revanna, V. Krishnakumar, Qunfeng Dong",
+    "venue": "Bioinform.",
     "year": 2009,
-    "citations": 8,
-    "cite_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=cLlRcPYAAAAJ&pagesize=100&citation_for_view=cLlRcPYAAAAJ:u-x6o8ySG0sC",
-    "citations_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=13609827102903299715"
+    "citations": 5,
+    "cite_url": "https://www.semanticscholar.org/paper/3c5d3c6aa21d7b742561424e51deb63f95aea41b",
+    "citations_url": "https://www.semanticscholar.org/paper/3c5d3c6aa21d7b742561424e51deb63f95aea41b/citing"
   },
   {
-    "title": "The arabidopsis information portal: an application platform for data discovery",
-    "authors": "MR Hanlon, M Vaughn, S Mock, R Dooley, W Moreira, J Stubbs, C Town, ...",
-    "venue": "2014 9th Gateway Computing Environments Workshop, 38-41",
+    "title": "The Arabidopsis Information Portal: An Application Platform for Data Discovery",
+    "authors": "M. Hanlon, M. Vaughn, S. Mock, R. Dooley, Walter Moreira, Joe Stubbs, C. Town, J. Miller, V. Krishnakumar, Erik S. Ferlanti, Eleanor Pence",
+    "venue": "2014 9th Gateway Computing Environments Workshop",
     "year": 2014,
     "citations": 3,
-    "cite_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=cLlRcPYAAAAJ&pagesize=100&citation_for_view=cLlRcPYAAAAJ:i2xiXl-TujoC",
-    "citations_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=17407800158273227174"
+    "cite_url": "https://www.semanticscholar.org/paper/bfb6271d62fbc4bba331438fe9e038c73cbaa73c",
+    "citations_url": "https://www.semanticscholar.org/paper/bfb6271d62fbc4bba331438fe9e038c73cbaa73c/citing"
   },
   {
-    "title": "Polyribosomal RNA-Seq reveals the decreased complexity and diversity of the Arabidopsis translatome.",
-    "authors": "ZXT Zhang XingTan, BD Rosen, THB Tang HaiBao, V Krishnakumar, ...",
+    "title": "MTGD\n : the\n Medicago truncatula\n genome database",
+    "authors": "V. Krishnakumar",
+    "venue": "",
+    "year": 2020,
+    "citations": 1,
+    "cite_url": "https://www.semanticscholar.org/paper/3568d08a4352f5b9332f2ef5f2bdb8bd4693015e",
+    "citations_url": "https://www.semanticscholar.org/paper/3568d08a4352f5b9332f2ef5f2bdb8bd4693015e/citing"
+  },
+  {
+    "title": "SeqLighter v1.0: BioJS based Sequence Viewer plugin for the GMOD JBrowse genome browser",
+    "authors": "Maria Kim, V. Krishnakumar",
+    "venue": "",
+    "year": 2016,
+    "citations": 1,
+    "cite_url": "https://www.semanticscholar.org/paper/34563dd55c206e5ad1b5fde60a7ae3e324caa447",
+    "citations_url": "https://www.semanticscholar.org/paper/34563dd55c206e5ad1b5fde60a7ae3e324caa447/citing"
+  },
+  {
+    "title": "Assembly and Functional Annotation of the Salix purpurea L. Chloroplast Genome",
+    "authors": "Craig H. Carlson, Haibao Tang, V. Krishnakumar, G. Tuskan, D. Rokhsar, D. Goodstein, S. Shu, K. Barry, E. Lindquist, R. Zhou, S. DiFazio, L. Smart",
+    "venue": "",
+    "year": 2015,
+    "citations": 1,
+    "cite_url": "https://www.semanticscholar.org/paper/bedeb81b9d83d3f42428ff35ba9185c6561a3f35",
+    "citations_url": "https://www.semanticscholar.org/paper/bedeb81b9d83d3f42428ff35ba9185c6561a3f35/citing"
+  },
+  {
+    "title": "JBrowse within the Arabidopsis Information Portal",
+    "authors": "V. Krishnakumar",
     "venue": "",
     "year": 2015,
     "citations": 0,
-    "cite_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=cLlRcPYAAAAJ&pagesize=100&citation_for_view=cLlRcPYAAAAJ:WJVC3Jt7v1AC",
-    "citations_url": ""
+    "cite_url": "https://www.semanticscholar.org/paper/08be491bfd14b171e6f6d94b42eee816368bc4e4",
+    "citations_url": "https://www.semanticscholar.org/paper/08be491bfd14b171e6f6d94b42eee816368bc4e4/citing"
   },
   {
-    "title": "The Federated Plant Database Initiative for the Legumes",
-    "authors": "A Farmer, JD Campbell, S Dash, W Huang, M O&#39;Connell, A Wilkey, ...",
-    "venue": "Plant and Animal Genome XXVI Conference (January 13-17, 2018), 0",
-    "year": null,
-    "citations": 0,
-    "cite_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=cLlRcPYAAAAJ&pagesize=100&citation_for_view=cLlRcPYAAAAJ:DUooU5lO8OsC",
-    "citations_url": ""
-  },
-  {
-    "title": "Shrub willow",
-    "authors": "F Gouker, M Serapiglia, L Smart, C Town, H Tang, V Krishnakumar, ...",
+    "title": "A Simple Two-Stage PCR Based Method to Construct Gene Disruption Cassette",
+    "authors": "V. Krishnakumar, A. Thirunavukkarasu",
     "venue": "",
-    "year": null,
+    "year": 2015,
     "citations": 0,
-    "cite_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=cLlRcPYAAAAJ&pagesize=100&citation_for_view=cLlRcPYAAAAJ:umqufdRvDiIC",
-    "citations_url": ""
+    "cite_url": "https://www.semanticscholar.org/paper/1207e6b5a1665ad7da85df7e3e13ae3b5ba6822a",
+    "citations_url": "https://www.semanticscholar.org/paper/1207e6b5a1665ad7da85df7e3e13ae3b5ba6822a/citing"
+  },
+  {
+    "title": "Tripal within the Arabidopsis Information Portal",
+    "authors": "V. Krishnakumar",
+    "venue": "",
+    "year": 2015,
+    "citations": 0,
+    "cite_url": "https://www.semanticscholar.org/paper/7e9ce45944eefba0d9cf93e8cf94322fd53ed329",
+    "citations_url": "https://www.semanticscholar.org/paper/7e9ce45944eefba0d9cf93e8cf94322fd53ed329/citing"
+  },
+  {
+    "title": "Medicago Truncatula Genome Release Version 4",
+    "authors": "V. Krishnakumar",
+    "venue": "",
+    "year": 2013,
+    "citations": 0,
+    "cite_url": "https://www.semanticscholar.org/paper/c64d581dbf89cc679f3b64e5bac56d1566997089",
+    "citations_url": "https://www.semanticscholar.org/paper/c64d581dbf89cc679f3b64e5bac56d1566997089/citing"
   }
 ]
