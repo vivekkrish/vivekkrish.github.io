@@ -146,7 +146,11 @@ def parse_scholar_html(html):
             "year": int(year) if year else None,
             "citations": citations,
             "cite_url": cite_url,
-            "citations_url": citations_url
+            "citations_url": citations_url,
+            "scholar_cite_url": cite_url,
+            "scholar_citations_url": citations_url,
+            "semantic_cite_url": "",
+            "semantic_citations_url": ""
         })
         
     return stats, sorted_history, publications
@@ -202,13 +206,97 @@ def fetch_semantic_scholar_stats(author_id):
             "year": year,
             "citations": paper.get("citationCount", 0),
             "cite_url": cite_url,
-            "citations_url": citations_url
+            "citations_url": citations_url,
+            "scholar_cite_url": "",
+            "scholar_citations_url": "",
+            "semantic_cite_url": cite_url,
+            "semantic_citations_url": citations_url
         })
         
     # Sort by citations descending
     publications.sort(key=lambda x: x["citations"], reverse=True)
     
     return stats, publications
+
+def fuse_publications(scholar_pubs, semantic_pubs):
+    # Create lookup map for semantic scholar publications by normalized title
+    s2_map = {}
+    for pub in semantic_pubs:
+        norm_title = re.sub(r'[^a-z0-9]', '', pub['title'].lower())
+        s2_map[norm_title] = pub
+
+    fused = []
+    # Match scholar publications to semantic publications
+    for spub in scholar_pubs:
+        norm_title = re.sub(r'[^a-z0-9]', '', spub['title'].lower())
+        if norm_title in s2_map:
+            s2_pub = s2_map[norm_title]
+            
+            # Prefer Semantic Scholar's clean metadata (author list without truncation, clean venue, year)
+            authors = s2_pub['authors']
+            venue = s2_pub['venue'] if s2_pub['venue'] else spub['venue']
+            year = s2_pub['year'] if s2_pub['year'] is not None else spub['year']
+            
+            # Prefer Google Scholar's citation count
+            citations = max(spub['citations'], s2_pub['citations'])
+            
+            # Combine URLs
+            scholar_cite_url = spub['scholar_cite_url'] or spub['cite_url'] or s2_pub.get('scholar_cite_url', '')
+            scholar_citations_url = spub['scholar_citations_url'] or spub['citations_url'] or s2_pub.get('scholar_citations_url', '')
+            semantic_cite_url = s2_pub['semantic_cite_url'] or s2_pub['cite_url'] or spub.get('semantic_cite_url', '')
+            semantic_citations_url = s2_pub['semantic_citations_url'] or s2_pub['citations_url'] or spub.get('semantic_citations_url', '')
+            
+            # Main fallback URLs: prefer Google Scholar links if available, else Semantic Scholar
+            cite_url = scholar_cite_url or semantic_cite_url
+            citations_url = scholar_citations_url or semantic_citations_url
+            
+            fused.append({
+                "title": s2_pub['title'], # keep the clean casing/title from S2
+                "authors": authors,
+                "venue": venue,
+                "year": year,
+                "citations": citations,
+                "cite_url": cite_url,
+                "citations_url": citations_url,
+                "scholar_cite_url": scholar_cite_url,
+                "scholar_citations_url": scholar_citations_url,
+                "semantic_cite_url": semantic_cite_url,
+                "semantic_citations_url": semantic_citations_url
+            })
+            
+            # Remove from s2_map to track what's left
+            del s2_map[norm_title]
+        else:
+            # Not in Semantic Scholar, keep Google Scholar record as is
+            fused.append(spub)
+            
+    # Add any remaining Semantic Scholar publications that weren't in Google Scholar
+    for s2_pub in s2_map.values():
+        fused.append(s2_pub)
+        
+    return fused
+
+def deduplicate_publications(publications):
+    seen = {}
+    for pub in publications:
+        # Normalize title: lowercase, alphanumeric only
+        norm_title = re.sub(r'[^a-z0-9]', '', pub['title'].lower())
+        if norm_title not in seen:
+            seen[norm_title] = pub
+        else:
+            existing = seen[norm_title]
+            # Keep version with higher citations
+            if pub['citations'] > existing['citations']:
+                seen[norm_title] = pub
+            elif pub['citations'] == existing['citations']:
+                # If citation count is equal, prefer the one with a non-empty venue
+                if pub.get('venue') and not existing.get('venue'):
+                    seen[norm_title] = pub
+    
+    # Sort final list by citations descending
+    deduped = list(seen.values())
+    deduped.sort(key=lambda x: x["citations"], reverse=True)
+    return deduped
 
 def main():
     config_path = "assets/resources/profile_config.json"
@@ -227,43 +315,59 @@ def main():
         print("Error: 'scholar' key not found in profile_config.json.")
         return
         
+    # 1. Fetch Semantic Scholar data first as a base of clean metadata
+    semantic_pubs = []
+    s2_stats = None
+    semantic_scholar_id = config.get("semanticScholar")
+    if semantic_scholar_id:
+        print(f"Fetching Semantic Scholar data for author ID: {semantic_scholar_id}...")
+        try:
+            s2_stats, semantic_pubs = fetch_semantic_scholar_stats(semantic_scholar_id)
+            print(f"Successfully fetched {len(semantic_pubs)} publications from Semantic Scholar.")
+        except Exception as e:
+            print(f"Warning: Failed to fetch Semantic Scholar data: {e}")
+
+    # 2. Attempt to fetch Google Scholar and enrich
     print(f"Fetching Google Scholar data for user: {scholar_id}...")
-    
     source_used = "Google Scholar"
     try:
         html = fetch_scholar_stats(scholar_id)
-        stats, history, publications = parse_scholar_html(html)
+        stats, history, scholar_pubs = parse_scholar_html(html)
         print("Successfully fetched and parsed Google Scholar data.")
+        
+        if semantic_pubs:
+            publications = fuse_publications(scholar_pubs, semantic_pubs)
+            print("Successfully fused Google Scholar and Semantic Scholar data.")
+            source_used = "Google Scholar + Semantic Scholar (Enriched)"
+        else:
+            publications = scholar_pubs
+            source_used = "Google Scholar Only"
+            
     except Exception as e:
         print(f"Failed to fetch Google Scholar data: {e}")
-        
-        semantic_scholar_id = config.get("semanticScholar")
-        if not semantic_scholar_id:
-            print("Error: 'semanticScholar' key not found in profile_config.json. Cannot fall back.")
+        if not semantic_pubs:
+            print("Error: Could not retrieve publication data from Google Scholar or Semantic Scholar. Exiting.")
             import sys
             sys.exit(1)
             
-        print(f"Falling back to Semantic Scholar API for author ID: {semantic_scholar_id}...")
-        try:
-            stats, publications = fetch_semantic_scholar_stats(semantic_scholar_id)
-            print("Successfully fetched and parsed Semantic Scholar data.")
-            source_used = "Semantic Scholar"
-            
-            # Load existing citationsHistory from citation_metrics.json if available
-            history = []
-            if os.path.exists(scholar_stats_path):
-                try:
-                    with open(scholar_stats_path, "r", encoding="utf-8") as f_hist:
-                        existing_data = json.load(f_hist)
-                        history = existing_data.get("citationsHistory", [])
-                        print("Preserved existing citationsHistory from cached metrics.")
-                except Exception as he:
-                    print(f"Warning: Could not read existing citation history: {he}")
-        except Exception as se:
-            print(f"Semantic Scholar fallback also failed: {se}")
-            import sys
-            sys.exit(1)
+        print("Falling back entirely to Semantic Scholar data...")
+        publications = semantic_pubs
+        stats = s2_stats
+        source_used = "Semantic Scholar Only"
         
+        # Load existing citationsHistory from citation_metrics.json if available
+        history = []
+        if os.path.exists(scholar_stats_path):
+            try:
+                with open(scholar_stats_path, "r", encoding="utf-8") as f_hist:
+                    existing_data = json.load(f_hist)
+                    history = existing_data.get("citationsHistory", [])
+                    print("Preserved existing citationsHistory from cached metrics.")
+            except Exception as he:
+                print(f"Warning: Could not read existing citation history: {he}")
+        
+    publications = deduplicate_publications(publications)
+    
     print(f"\n--- Metrics ({source_used}) ---")
     print(f"Citations: {stats['citations']}")
     print(f"h-index: {stats['hIndex']}")

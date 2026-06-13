@@ -2,8 +2,8 @@ name: Update Google Scholar Metrics
 
 on:
   schedule:
-    # Run daily at 04:37 UTC (21:37 PDT) to avoid GHA runner peak hourly traffic and IP blocks
-    - cron: '37 4 * * *'
+    # Run weekly on Sundays at 04:37 UTC (21:37 PDT Sunday) to avoid IP blocks
+    - cron: '37 4 * * 0'
   workflow_dispatch: # Allows manual trigger from the GitHub Actions tab
 
 jobs:
